@@ -1,6 +1,8 @@
 # PS2EXE-GUI
 This project provides a advanced graphical user interface for PS2EXE.
 
+_a release will be added shortly_
+
 ## Screenshot
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
 
