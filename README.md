@@ -12,3 +12,6 @@ This Project uses the further developed version of PS2EXE by [Markus Scholtes](h
 PS2EXE was initially developed by [Ingo Karstein](https://github.com/ikarstein).
 
 This project is licensed under the [Apache License 2.0](https://github.com/Hope-IT-Works/PS2EXE-GUI/blob/master/LICENSE).
+
+## Stars over time
+[![Stargazers over time](https://starchart.cc/Hope-IT-Works/PS2EXE-GUI.svg)](https://starchart.cc/Hope-IT-Works/PS2EXE-GUI)
