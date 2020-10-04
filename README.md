@@ -3,8 +3,8 @@ This project provides a advanced graphical user interface for PS2EXE.
 
 _a release will be added shortly_
 
-| Code-Quality | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fc8ed47195754619a1c99179ba1e11a7)](https://app.codacy.com/manual/Hope-IT-Works/PS2EXE-GUI?utm_source=github.com&utm_medium=referral&utm_content=Hope-IT-Works/PS2EXE-GUI&utm_campaign=Badge_Grade_Settings) |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Code-Quality | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fc8ed47195754619a1c99179ba1e11a7)](https://app.codacy.com/manual/Hope-IT-Works/PS2EXE-GUI?utm_source=github.com&utm_medium=referral&utm_content=Hope-IT-Works/PS2EXE-GUI&utm_campaign=Badge_Grade_Settings) | [![CodeFactor](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui/badge)](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui) |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 ## Developement Progress
 | Feature                          | Status |
