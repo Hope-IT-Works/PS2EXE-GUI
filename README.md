@@ -1,6 +1,5 @@
 # PS2EXE-GUI
-This project provides a advanced graphical user interface for PS2EXE.
-
+This project provides a advanced graphical user interface for PS2EXE.<br><br>
 _a release will be added shortly_
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fc8ed47195754619a1c99179ba1e11a7)](https://app.codacy.com/manual/Hope-IT-Works/PS2EXE-GUI?utm_source=github.com&utm_medium=referral&utm_content=Hope-IT-Works/PS2EXE-GUI&utm_campaign=Badge_Grade_Settings)
