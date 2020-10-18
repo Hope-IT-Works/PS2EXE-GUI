@@ -11,7 +11,7 @@ _a release will be added shortly_
 | add all p2exe fields             | ✅      |
 | add tooltip to all ps2exe fields | ✅      |
 | add about page                   | ✅      |
-| mark required ps2exe fields      |        |
+| mark required ps2exe fields      | ✅      |
 | get ps2exe call done             |        |
 | add ps2exe-script update         |        |
 | release first build              |        |
