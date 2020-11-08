@@ -1,3 +1,5 @@
+![Logo](https://github.com/Hope-IT-Works/PS2EXE-GUI/blob/master/resources/graphics/logo/repository-social.png?raw=true)
+
 # PS2EXE-GUI
 This project provides a advanced graphical user interface for PS2EXE.<br><br>
 _a release will be added shortly_
