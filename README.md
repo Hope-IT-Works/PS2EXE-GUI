@@ -14,12 +14,12 @@ _a release will be added shortly_
 | add tooltip to all ps2exe fields | ✅      |
 | add about page                   | ✅      |
 | mark required ps2exe fields      | ✅      |
-| get ps2exe call done             |        |
+| get ps2exe call done             | ✅      |
 | add ps2exe-script update         |        |
 | release first build              |        |
-| integrate PSScriptAnalyzer       |        |
-| release second build             |        |
 | add save files                   |        |
+| release second build             |        |
+| integrate PSScriptAnalyzer       |        |
 | release third build              |        |
 
 ## Screenshot
