@@ -28,6 +28,8 @@ _a release will be added shortly_
 ## About the project
 This Project uses the further developed version of PS2EXE by [Markus Scholtes](https://github.com/MScholtes).
 
+The GUI of PS2EXE-GUI was made with [POSHGUI](https://poshgui.com) by Maciej Obuchowski.
+
 PS2EXE was initially developed by [Ingo Karstein](https://github.com/ikarstein).
 
 This project is licensed under the [Apache License 2.0](https://github.com/Hope-IT-Works/PS2EXE-GUI/blob/master/LICENSE).
