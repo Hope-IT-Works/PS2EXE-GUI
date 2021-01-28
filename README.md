@@ -19,7 +19,7 @@ _a release will be added shortly_
 | release first build              |        |
 | add save files                   |        |
 | release second build             |        |
-| integrate PSScriptAnalyzer       |        |
+| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer)       |        |
 | release third build              |        |
 
 ## Screenshot
