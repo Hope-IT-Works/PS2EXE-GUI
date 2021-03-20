@@ -15,7 +15,7 @@ _a release will be added shortly_
 | add about page                   | ✅      |
 | mark required ps2exe fields      | ✅      |
 | get ps2exe call done             | ✅      |
-| add ps2exe-script update         |        |
+| add ps2exe-script update         | ⏳      |
 | release first build              |        |
 | add save files                   |        |
 | release second build             |        |
