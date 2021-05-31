@@ -8,21 +8,21 @@ _a release will be added shortly_
 [![CodeFactor](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui/badge)](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui)
 
 ## Developement Progress
-| Feature                          | Status |
-|----------------------------------|--------|
-| add all p2exe fields             | ✅      |
-| add tooltip to all ps2exe fields | ✅      |
-| add about page                   | ✅      |
-| mark required ps2exe fields      | ✅      |
-| get ps2exe call done             | ✅      |
-| add ps2exe-script update         | ⏳      |
-| release first build              |        |
-| add save files                   |        |
-| release second build             |        |
+| Feature                          | Status | ETA |
+|----------------------------------|--------|-----|
+| add all p2exe fields             | ✅     | ✅ |
+| add tooltip to all ps2exe fields | ✅     | ✅ |
+| add about page                   | ✅     | ✅ |
+| mark required ps2exe fields      | ✅     | ✅ |
+| get ps2exe call done             | ✅     | ✅ |
+| add ps2exe-script update         | ⏳     | TBA |
+| release first build              |        | TBA |
+| add save files                   |        |  |
+| release second build             |        |  |
 | integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) |        |
-| release third build              |        |
+| release third build              |        |  |
 | integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) |        |
-| release fourth build             |        |
+| release fourth build             |        |  |
 
 ## Screenshot
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
