@@ -19,8 +19,10 @@ _a release will be added shortly_
 | release first build              |        |
 | add save files                   |        |
 | release second build             |        |
-| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer)       |        |
+| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) |        |
 | release third build              |        |
+| integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) |        |
+| release fourth build             |        |
 
 ## Screenshot
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
