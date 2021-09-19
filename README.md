@@ -19,9 +19,9 @@ _a release will be added shortly_
 | release first build              |        | Q4/2021 |
 | add save files                   |        | TBA |
 | release second build             |        | TBA |
-| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) | TBA |
+| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) |  | TBA |
 | release third build              |        | TBA |
-| integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) | TBA |
+| integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) |  | TBA |
 | release fourth build             |        | TBA |
 
 ## Screenshot
