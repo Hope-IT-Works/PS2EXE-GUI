@@ -15,14 +15,14 @@ _a release will be added shortly_
 | add about page                   | ✅     | ✅ |
 | mark required ps2exe fields      | ✅     | ✅ |
 | get ps2exe call done             | ✅     | ✅ |
-| add ps2exe-script update         | ⏳     | TBA |
-| release first build              |        | TBA |
-| add save files                   |        |  |
-| release second build             |        |  |
-| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) |        |
-| release third build              |        |  |
-| integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) |        |
-| release fourth build             |        |  |
+| add ps2exe-script update         | ⏳     | Q4/2021 |
+| release first build              |        | Q4/2021 |
+| add save files                   |        | TBA |
+| release second build             |        | TBA |
+| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) | TBA |
+| release third build              |        | TBA |
+| integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) | TBA |
+| release fourth build             |        | TBA |
 
 ## Screenshot
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
