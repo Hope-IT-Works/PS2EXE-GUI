@@ -28,7 +28,7 @@ _a release will be added shortly_
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
 
 ## About the project
-This Project uses the further developed version of PS2EXE by [Markus Scholtes](https://github.com/MScholtes).
+This Project uses the further developed version of PS2EXE by [Markus Scholtes](https://github.com/MScholtes) licensed under the Microsoft Public License (MC-PL).
 
 The GUI of PS2EXE-GUI was made with [POSHGUI](https://poshgui.com) by [Maciej Obuchowski](https://twitter.com/poshgui).
 
