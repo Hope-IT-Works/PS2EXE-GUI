@@ -15,8 +15,8 @@ _a release will be added shortly_
 | add about page                   | ✅     | ✅ |
 | mark required ps2exe fields      | ✅     | ✅ |
 | get ps2exe call done             | ✅     | ✅ |
-| add ps2exe-script update         | ⏳     | Q4/2021 |
-| release first build              |        | Q4/2021 |
+| add ps2exe-script update         | ⏳     | Q1/2022 |
+| release first build              |        | Q1/2022 |
 | add save files                   |        | TBA |
 | release second build             |        | TBA |
 | integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) |  | TBA |
