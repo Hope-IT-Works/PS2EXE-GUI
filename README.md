@@ -25,36 +25,40 @@ _a release will be added shortly_
 | release fourth build             |        | TBA |
 
 ## Parameter Support
-- [x] inputFile
-- [x] outputFile
-- [ ] prepareDebug
-- [x] runtime20
-- [x] runtime40
-- [x] x86/x64
-- [ ] lcid
-- [x] STA/MTA
-- [x] noConsole
-- [ ] UNICODEEncoding
-- [x] credentialGUI
-- [x] iconFile
-- [x] title
-- [x] description
-- [x] company
-- [x] product
-- [x] copyright
-- [x] trademark
-- [x] version
-- [x] configFile
-- [x] noOutput
-- [x] noError
-- [ ] noVisualStyles
-- [ ] exitOnCancel
-- [ ] DPIAware
-- [x] requireAdmin
-- [x] supportOS
-- [x] virtualize
-- [x] longPaths
-- [x] **BONUS:** extractable - allows you to disable the ability to extract the ps1 out of the exe-file
+| Parameter | Available |
+| --- | :---: |
+| inputFile | ✅ |
+| outputFile | ✅ |
+| prepareDebug | ⏳ |
+| runtime20 | ✅ |
+| runtime40 | ✅ |
+| x86/x64 | ✅ |
+| lcid | ❌ |
+| STA/MTA | ✅ |
+| noConsole | ✅ |
+| UNICODEEncoding
+| credentialGUI | ✅ |
+| iconFile | ✅ |
+| title | ✅ |
+| description | ✅ |
+| company | ✅ |
+| product | ✅ |
+| copyright | ✅ |
+| trademark | ✅ |
+| version | ✅ |
+| configFile | ✅ |
+| noOutput | ✅ |
+| noError | ✅ |
+| noVisualStyles | ⏳ |
+| exitOnCancel | ⏳ |
+| DPIAware | ⏳ |
+| requireAdmin | ✅ |
+| supportOS | ✅ |
+| virtualize | ✅ |
+| longPaths | ✅ |
+| **BONUS:** extractable[^1] | ✅ |
+
+[^1]: allows you to disable the ability to extract the ps1 out of the exe-file
 
 ## Screenshot
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
