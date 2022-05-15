@@ -24,6 +24,38 @@ _a release will be added shortly_
 | integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) |  | TBA |
 | release fourth build             |        | TBA |
 
+## Parameter Support
+- [x] inputFile
+- [x] outputFile
+- [ ] prepareDebug
+- [x] runtime20
+- [x] runtime40
+- [x] x86/x64
+- [ ] lcid
+- [x] STA/MTA
+- [x] noConsole
+- [ ] UNICODEEncoding
+- [x] credentialGUI
+- [x] iconFile
+- [x] title
+- [x] description
+- [x] company
+- [x] product
+- [x] copyright
+- [x] trademark
+- [x] version
+- [x] configFile
+- [x] noOutput
+- [x] noError
+- [ ] noVisualStyles
+- [ ] exitOnCancel
+- [ ] DPIAware
+- [x] requireAdmin
+- [x] supportOS
+- [x] virtualize
+- [x] longPaths
+- [x] **BONUS:** extractable - allows you to disable the ability to extract the ps1 out of the exe-file
+
 ## Screenshot
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
 
