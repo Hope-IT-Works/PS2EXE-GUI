@@ -1,4 +1,4 @@
-![Logo](https://github.com/Hope-IT-Works/PS2EXE-GUI/blob/master/resources/graphics/logo/logo_header_small.png?raw=true)
+![Logo](https://github.com/Hope-IT-Works/PS2EXE-GUI/blob/main/resources/graphics/logo/logo_header_small.png?raw=true)
 
 # PS2EXE-GUI
 This project provides a advanced graphical user interface for [PS2EXE](https://github.com/MScholtes/TechNet-Gallery/tree/master/PS2EXE-GUI).<br><br>
@@ -15,8 +15,8 @@ _a release will be added shortly_
 | add about page                   | ✅     | ✅ |
 | mark required ps2exe fields      | ✅     | ✅ |
 | get ps2exe call done             | ✅     | ✅ |
-| add ps2exe-script update         | ⏳     | Q1/2022 |
-| release first build              |        | Q1/2022 |
+| add ps2exe-script update         | ⏳     | Q2/2022 |
+| release first build              |        | Q2/2022 |
 | add save files                   |        | TBA |
 | release second build             |        | TBA |
 | integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) |  | TBA |
@@ -34,7 +34,7 @@ The GUI of PS2EXE-GUI was made with [POSHGUI](https://poshgui.com) by [Maciej Ob
 
 PS2EXE was initially developed by [Ingo Karstein](https://github.com/ikarstein).
 
-This project is licensed under the [Apache License 2.0](https://github.com/Hope-IT-Works/PS2EXE-GUI/blob/master/LICENSE).
+This project is licensed under the [Apache License 2.0](https://github.com/Hope-IT-Works/PS2EXE-GUI/blob/main/LICENSE).
 
 ## Stars over time
 [![Stargazers over time](https://starchart.cc/Hope-IT-Works/PS2EXE-GUI.svg)](https://starchart.cc/Hope-IT-Works/PS2EXE-GUI)
