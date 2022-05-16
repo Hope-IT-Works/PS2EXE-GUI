@@ -33,10 +33,10 @@ _a release will be added shortly_
 | runtime20 | ✅ |
 | runtime40 | ✅ |
 | x86/x64 | ✅ |
-| lcid | ❌ |
+| lcid[^lcid-not-necessary] | ❌ |
 | STA/MTA | ✅ |
 | noConsole | ✅ |
-| UNICODEEncoding
+| UNICODEEncoding | ⏳ |
 | credentialGUI | ✅ |
 | iconFile | ✅ |
 | title | ✅ |
@@ -56,9 +56,10 @@ _a release will be added shortly_
 | supportOS | ✅ |
 | virtualize | ✅ |
 | longPaths | ✅ |
-| **BONUS:** extractable[^1] | ✅ |
+| **BONUS:** extractable[^extractable] | ✅ |
 
-[^1]: allows you to disable the ability to extract the ps1 out of the exe-file
+[^lcid-not-necessary]: Doesn't seem necessary. If it is needed, please open an [issue](https://github.com/Hope-IT-Works/PS2EXE-GUI/issues/new).
+[^extractable]: Allows you to choose, if the user is able to extract the ps1 out of the `.exe` file.
 
 ## Screenshot
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
