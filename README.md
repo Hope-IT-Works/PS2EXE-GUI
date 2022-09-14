@@ -2,12 +2,15 @@
 
 # PS2EXE-GUI
 This project provides a advanced graphical user interface for [PS2EXE](https://github.com/MScholtes/Win-PS2EXE).<br><br>
-_a release will be added shortly_
+_a release will be added soon_
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c03fe42c3a28471dbc99e92918f4fc20)](https://www.codacy.com/gh/Hope-IT-Works/PS2EXE-GUI/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Hope-IT-Works/PS2EXE-GUI&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui/badge)](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui)
 
 ## Developement Progress
+
+*due to major delays and inconsistency, PS2EXE-GUI will completely be refactored*
+
 | Feature                          | Status | ETA |
 |----------------------------------|--------|-----|
 | add all p2exe fields             | ✅     | ✅ |
@@ -15,8 +18,8 @@ _a release will be added shortly_
 | add about page                   | ✅     | ✅ |
 | mark required ps2exe fields      | ✅     | ✅ |
 | get ps2exe call done             | ✅     | ✅ |
-| add ps2exe-script update         | ⏳     | Q2/2022 |
-| release first build              |        | Q2/2022 |
+| add ps2exe-script update         | ⏳     | Q3/2022 |
+| release first build              |        | Q3/2022 |
 | add save files                   |        | TBA |
 | release second build             |        | TBA |
 | integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) |  | TBA |
@@ -65,7 +68,7 @@ _a release will be added shortly_
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
 
 ## About the project
-This Project uses the further developed version of PS2EXE by [Markus Scholtes](https://github.com/MScholtes) licensed under the Microsoft Public License (MC-PL).
+This Project uses the further developed version of [PS2EXE](https://github.com/MScholtes/Win-PS2EXE/blob/master/ps2exe.ps1) by [Markus Scholtes](https://github.com/MScholtes) licensed under the Microsoft Public License (MC-PL).
 
 The GUI of PS2EXE-GUI was made with [POSHGUI](https://poshgui.com) by [Maciej Obuchowski](https://twitter.com/poshgui).
 
