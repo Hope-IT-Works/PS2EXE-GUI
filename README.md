@@ -15,9 +15,9 @@ _a release will be added soon_
 |----------------------------------|--------|-----|
 | add all p2exe fields             | ✅     | ✅ |
 | add tooltip to all ps2exe fields |        | today |
-| add about page                   |        |  |
-| mark required ps2exe fields      |        |  |
-| get ps2exe call done             |        |  |
+| add about page                   |        | Q3/2022 |
+| mark required ps2exe fields      |        | Q3/2022 |
+| get ps2exe call done             |        | Q3/2022 |
 | add ps2exe-script update         | ⏳     | Q3/2022 |
 | release first build              |        | Q3/2022 |
 | add save files                   |        | TBA |
