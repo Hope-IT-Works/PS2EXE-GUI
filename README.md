@@ -14,10 +14,10 @@ _a release will be added soon_
 | Feature                          | Status | ETA |
 |----------------------------------|--------|-----|
 | add all p2exe fields             | ✅     | ✅ |
-| add tooltip to all ps2exe fields | ✅     | ✅ |
-| add about page                   | ✅     | ✅ |
-| mark required ps2exe fields      | ✅     | ✅ |
-| get ps2exe call done             | ✅     | ✅ |
+| add tooltip to all ps2exe fields |        | today |
+| add about page                   |        |  |
+| mark required ps2exe fields      |        |  |
+| get ps2exe call done             |        |  |
 | add ps2exe-script update         | ⏳     | Q3/2022 |
 | release first build              |        | Q3/2022 |
 | add save files                   |        | TBA |
