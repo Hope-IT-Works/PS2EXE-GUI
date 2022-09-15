@@ -24,8 +24,8 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
-- OS: \[e.g. Windows 10\]
-- PS-Version: \[e.g. 7.2.3\] → `(Get-Host).Version.ToString()`
+  - OS: \[e.g. Windows 10\]
+  - PS-Version: \[e.g. 7.2.6\] → `(Get-Host).Version.ToString()`
 
 **Additional context**
 Add any other context about the problem here.
