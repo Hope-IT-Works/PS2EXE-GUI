@@ -9,7 +9,7 @@ _a release will be added soon_
 
 ## Developement Progress
 
-*due to major delays and inconsistency, PS2EXE-GUI will completely be refactored*
+_due to major delays and inconsistency, PS2EXE-GUI will completely be refactored_
 
 | Feature                          | Status | ETA |
 |----------------------------------|--------|-----|
