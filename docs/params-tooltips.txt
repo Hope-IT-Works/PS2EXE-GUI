@@ -1,0 +1,105 @@
+inputFile
+Powershell script to convert to executable (file has to be UTF8 or UTF16 encoded)
+
+outputFile
+destination executable file name or folder, defaults to inputFile with extension '.exe'
+
+prepareDebug
+create helpful information for debugging of generated executable. See parameter -debug there
+
+runtime20
+this switch forces PS2EXE to create a config file for the generated executable that contains the
+"supported .NET Framework versions" setting for .NET Framework 2.0/3.x for PowerShell 2.0
+
+runtime40
+this switch forces PS2EXE to create a config file for the generated executable that contains the
+"supported .NET Framework versions" setting for .NET Framework 4.x for PowerShell 3.0 or higher
+
+x86
+compile for 32-bit runtime only
+
+x64
+compile for 64-bit runtime only
+
+lcid
+location ID for the compiled executable. Current user culture if not specified
+
+STA
+Single Thread Apartment mode
+
+MTA
+Multi Thread Apartment mode
+
+nested
+internal use
+
+noConsole
+the resulting executable will be a Windows Forms app without a console window.
+You might want to pipe your output to Out-String to prevent a message box for every line of output
+(example: dir C:\ | Out-String)
+
+UNICODEEncoding
+encode output as UNICODE in console mode, useful to display special encoded chars
+
+credentialGUI
+use GUI for prompting credentials in console mode instead of console input
+
+iconFile
+icon file name for the compiled executable
+
+title
+title information (displayed in details tab of Windows Explorer's properties dialog)
+
+description
+description information (not displayed, but embedded in executable)
+
+company
+company information (not displayed, but embedded in executable)
+
+product
+product information (displayed in details tab of Windows Explorer's properties dialog)
+
+copyright
+copyright information (displayed in details tab of Windows Explorer's properties dialog)
+
+trademark
+trademark information (displayed in details tab of Windows Explorer's properties dialog)
+
+version
+version information (displayed in details tab of Windows Explorer's properties dialog)
+
+configFile
+write a config file (<outputfile>.exe.config)
+
+noConfigFile
+compatibility parameter
+
+noOutput
+the resulting executable will generate no standard output (includes verbose and information channel)
+
+noError
+the resulting executable will generate no error output (includes warning and debug channel)
+
+noVisualStyles
+disable visual styles for a generated windows GUI application. Only applicable with parameter -noConsole
+
+exitOnCancel
+exits program when Cancel or "X" is selected in a Read-Host input box. Only applicable with parameter -noConsole
+
+DPIAware
+if display scaling is activated, GUI controls will be scaled if possible. Only applicable with parameter -noConsole
+
+requireAdmin
+if UAC is enabled, compiled executable will run only in elevated context (UAC dialog appears if required)
+
+supportOS
+use functions of newest Windows versions (execute [Environment]::OSVersion to see the difference)
+
+virtualize
+application virtualization is activated (forcing x86 runtime)
+
+longPaths
+enable long paths ( > 260 characters) if enabled on OS (works only with Windows 10)
+
+extractable
+enables extract-Function (\u003Capplication.exe\u003e -extract:\u003CFILENAME\u003e)

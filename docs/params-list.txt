@@ -1,0 +1,36 @@
+    <!-- inputFile → FILEPATH.ps1 -->
+    <!-- outputFile → FILEPATH.exe -->
+    <!-- iconFile → FILEPATH.ico -->
+    <!-- title → TEXTBOX -->
+    <!-- description → TEXTBOX -->
+    <!-- company → TEXTBOX -->
+    <!-- product → TEXTBOX -->
+    <!-- copyright → TEXTBOX -->
+    <!-- trademark → TEXTBOX -->
+    <!-- version → TEXTBOX -->
+    <!-- runtime → COMBOBOX
+        - runtime20
+        - runtime40
+    -->
+    <!-- instructionSet → COMBOBOX
+        - x86
+        - x64
+    -->
+    <!-- threadApartment → COMBOBOX
+        - STA
+        - MTA
+    -->
+    <!-- prepareDebug → CHECKBOX -->
+    <!-- noConsole → CHECKBOX -->
+    <!-- UNICODEEncoding → CHECKBOX -->
+    <!-- credentialGUI → CHECKBOX -->
+    <!-- configFile → CHECKBOX -->
+    <!-- noOutput → CHECKBOX -->
+    <!-- noError → CHECKBOX -->
+    <!-- noVisualStyles → CHECKBOX -->
+    <!-- exitOnCancel → CHECKBOX -->
+    <!-- DPIAware → CHECKBOX -->
+    <!-- requireAdmin → CHECKBOX -->
+    <!-- supportOS → CHECKBOX -->
+    <!-- virtualize → CHECKBOX -->
+    <!-- longPaths → CHECKBOX -->
