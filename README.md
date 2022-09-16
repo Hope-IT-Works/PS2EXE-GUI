@@ -13,19 +13,19 @@ _due to major delays and inconsistency, PS2EXE-GUI will completely be refactored
 
 | Feature                          | Status | ETA |
 |----------------------------------|--------|-----|
-| add all p2exe fields             | ✅     | ✅ |
-| add tooltip to all ps2exe fields | ✅     | ✅ |
-| add about page                   | ⏳     | due 18.09.2022 |
-| mark required ps2exe fields      | ⏳     | Q3/2022 |
-| get ps2exe call done             | ⏳     | Q3/2022 |
-| add ps2exe-script update         | ⏳     | Q3/2022 |
-| release first build              |        | Q3/2022 |
-| add save files                   |        | TBA |
-| release second build             |        | TBA |
-| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) |  | TBA |
-| release third build              |        | TBA |
-| integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) |  | TBA |
-| release fourth build             |        | TBA |
+| add all p2exe fields             | ✅ | ✅ |
+| add tooltip to all ps2exe fields | ✅ | ✅ |
+| add about page                   | ⏳ | due 18.09.2022 |
+| mark required ps2exe fields      | ⏳ | Q3/2022 |
+| get ps2exe call done             | ⏳ | Q3/2022 |
+| add ps2exe-script update         | ⏳ | Q3/2022 |
+| release first build              | ⏳ | Q3/2022 |
+| add save files                   | 🔜 | TBA |
+| release second build             | 🔜 | TBA |
+| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) | ⏳ | TBA |
+| release third build              | 🔜 | TBA |
+| integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) | 🔜 | TBA |
+| release fourth build             | 🔜 | TBA |
 
 ## Parameter Support
 | Parameter | Available |
