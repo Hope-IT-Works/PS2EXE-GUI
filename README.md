@@ -62,7 +62,7 @@ _due to major delays and inconsistency, PS2EXE-GUI will completely be refactored
 [^lcid-not-necessary]: Doesn't seem necessary. If it is needed, please open an [issue](https://github.com/Hope-IT-Works/PS2EXE-GUI/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=lcid-parameter%20is%20necessary).
 [^extractable]: Allows you to choose, if the user is able to extract the `.ps1` out of the `.exe` file.
 
-## Screenshot
+## Screenshot (outdated)
 ![Screenshot](https://i.gyazo.com/92f58f0ce691f38e6042537b1a938afd.png)
 
 ## About the project
