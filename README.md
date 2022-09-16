@@ -22,7 +22,7 @@ _due to major delays and inconsistency, PS2EXE-GUI will completely be refactored
 | release first build              | ⏳ | Q3/2022 |
 | add save files                   | 🔜 | TBA |
 | release second build             | 🔜 | TBA |
-| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) | ⏳ | TBA |
+| integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) | 🔜 | TBA |
 | release third build              | 🔜 | TBA |
 | integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) | 🔜 | TBA |
 | release fourth build             | 🔜 | TBA |
