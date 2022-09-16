@@ -27,37 +27,37 @@ _due to major delays and inconsistency, PS2EXE-GUI will completely be refactored
 | integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) | 🔜 | TBA |
 | release fourth build             | 🔜 | TBA |
 
-## Parameter Support
-| Parameter | Available |
-| --- | :---: |
-| inputFile | ✅ |
-| outputFile | ✅ |
-| iconFile | ✅ |
-| title | ✅ |
-| description | ✅ |
-| company | ✅ |
-| product | ✅ |
-| copyright | ✅ |
-| trademark | ✅ |
-| version | ✅ |
-| runtime | ✅ |
-| instructionSet | ✅ |
-| threadApartment | ✅ |
-| prepareDebug | ✅ |
-| noConsole | ✅ |
-| UNICODEEncoding | ✅ |
-| credentialGUI | ✅ |
-| configFile | ✅ |
-| noOutput | ✅ |
-| noError | ✅ |
-| noVisualStyles | ✅ |
-| exitOnCancel | ✅ |
-| DPIAware | ✅ |
-| requireAdmin | ✅ |
-| supportOS | ✅ |
-| virtualize | ✅ |
-| longPaths | ✅ |
-| **BONUS:** extractable[^extractable] | ✅ |
+## Parameter Support Comparison
+| Parameter | PS2EXE-GUI | [Win-PS2EXE](https://github.com/MScholtes/Win-PS2EXE) |
+| --- | :---: | :---: |
+| inputFile | ✅ | ✅ |
+| outputFile | ✅ | ✅ |
+| iconFile | ✅ | ✅ |
+| title | ✅ | ❌ |
+| description | ✅ | ✅ |
+| company | ✅ | ❌ |
+| product | ✅ | ✅ |
+| copyright | ✅ | ✅ |
+| trademark | ✅ | ❌ |
+| version | ✅ | ✅ |
+| runtime | ✅ | ❌ |
+| instructionSet | ✅ | ✅ |
+| threadApartment | ✅ | ✅ |
+| prepareDebug | ✅ | ❌ |
+| noConsole | ✅ | ✅ |
+| UNICODEEncoding | ✅ | ❌ |
+| credentialGUI | ✅ | ❌ |
+| configFile | ✅ | ✅ |
+| noOutput | ✅ | ✅ |
+| noError | ✅ | ✅ |
+| noVisualStyles | ✅ | ❌ |
+| exitOnCancel | ✅ | ❌ |
+| DPIAware | ✅ | ❌ |
+| requireAdmin | ✅ | ✅ |
+| supportOS | ✅ | ❌ |
+| virtualize | ✅ | ❌ |
+| longPaths | ✅ | ❌ |
+| **BONUS:** extractable[^extractable] | ✅ | ❌ |
 
 [^lcid-not-necessary]: Doesn't seem necessary. If it is needed, please open an [issue](https://github.com/Hope-IT-Works/PS2EXE-GUI/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=lcid-parameter%20is%20necessary).
 [^extractable]: Allows you to choose, if the user is able to extract the `.ps1` out of the `.exe` file.
