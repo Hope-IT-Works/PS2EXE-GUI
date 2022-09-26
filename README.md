@@ -17,11 +17,11 @@ _due to major delays and inconsistency, PS2EXE-GUI will completely be refactored
 | add tooltip to all ps2exe fields | ✅ | ✅ |
 | add about page                   | ✅ | ✅ |
 | mark required ps2exe fields      | ✅ | ✅ |
-| get ps2exe call done             | ⏳ | due 25.09.2022 |
-| add ps2exe-script update         | ⏳ | Q3/2022 |
-| release first build              | ⏳ | Q3/2022 |
-| add save files                   | 🔜 | TBA |
-| release second build             | 🔜 | TBA |
+| get ps2exe call done             | ⏳ | due 02.10.2022 |
+| add ps2exe-script update         | ⏳ | due 02.10.2022 |
+| release first build              | ⏳ | due 09.10.2022 |
+| add save files                   | ⏳ | Q4/2022 |
+| release second build             | ⏳ | Q4/2022 |
 | integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) | 🔜 | TBA |
 | release third build              | 🔜 | TBA |
 | integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) | 🔜 | TBA |
