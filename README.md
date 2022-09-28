@@ -2,7 +2,7 @@
 
 # PS2EXE-GUI
 This project provides a advanced graphical user interface for [PS2EXE](https://github.com/MScholtes/Win-PS2EXE).<br><br>
-_a release will be added soon (release due 02.10.2022)_
+_a release will be added soon (release due 09.10.2022)_
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c03fe42c3a28471dbc99e92918f4fc20)](https://www.codacy.com/gh/Hope-IT-Works/PS2EXE-GUI/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Hope-IT-Works/PS2EXE-GUI&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui/badge)](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui)
