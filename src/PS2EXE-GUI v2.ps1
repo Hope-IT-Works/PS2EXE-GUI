@@ -6,7 +6,7 @@
 Add-Type -AssemblyName PresentationCore, PresentationFramework
 
 $Xaml = @"
-<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="640" Height="590" Title="PS2EXE-GUI" ResizeMode="NoResize" Name="l8d045djnig6z">
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="640" Height="590" Title="PS2EXE-GUI" ResizeMode="NoResize" Name="l8m8ia0kma6kq">
 <!--d9102811-1fab-4eca-a3f6-f5b6db64722b-->
 <TabControl Margin="0,0,0,0" SelectedIndex="{Binding TabIndex}" BorderThickness="0,0,0,0" Name="ui_dockpanel11">
 <TabItem Header="Main" Visibility="Collapsed">
@@ -19,87 +19,87 @@ $Xaml = @"
         <Image HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="455" Margin="15,441,0,0" Source="https://github.com/Hope-IT-Works/PS2EXE-GUI/raw/main/resources/graphics/logo/logo_header_small.png?raw=true" Stretch="Uniform"/>
     <!-- inputFile → FILEPATH.ps1 -->
         <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="300" TextWrapping="Wrap" Margin="15,40,0,0" ToolTip="{Binding tooltip_inputFile}" BorderBrush="{Binding state_inputFile}" Name="ui_inputFile"/>
-        <Button Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="320,40,0,0" Name="l8d045dl6tlyo"/>
+        <Button Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="320,40,0,0" Name="l8m8ia0ludavg"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="inputFile" Margin="355,40,0,0" FontWeight="SemiBold"/>
     <!-- outputFile → FILEPATH.exe -->
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="300" TextWrapping="Wrap" Margin="15,70,0,0" ToolTip="{Binding tooltip_outputFile}" Text="{Binding ui_outputFile}" Name="l8d045dl1audl"/>
-        <Button Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="320,70,0,0" Name="l8d045dl0iq23"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="300" TextWrapping="Wrap" Margin="15,70,0,0" ToolTip="{Binding tooltip_outputFile}" Text="{Binding ui_outputFile}" Name="l8m8ia0ljrvjs"/>
+        <Button Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="320,70,0,0" Name="l8m8ia0lni99g"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="outputFile" Margin="355,70,0,0"/>
     <!-- iconFile → FILEPATH.ico -->
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="300" TextWrapping="Wrap" Margin="15,100,0,0" ToolTip="{Binding tooltip_iconFile}" Text="{Binding ui_iconFile}" Name="l8d045dm8aqg1"/>
-        <Button Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="320,100,0,0" Name="l8d045dmbmyaw"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="300" TextWrapping="Wrap" Margin="15,100,0,0" ToolTip="{Binding tooltip_iconFile}" Text="{Binding ui_iconFile}" Name="l8m8ia0leekw4"/>
+        <Button Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="320,100,0,0" Name="l8m8ia0myic4e"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="iconFile" Margin="355,100,0,0"/>
     <!-- title → TEXTBOX -->
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,130,0,0" ToolTip="{Binding tooltip_title}" Text="{Binding ui_title}" Name="l8d045dmpv5dc"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,130,0,0" ToolTip="{Binding tooltip_title}" Text="{Binding ui_title}" Name="l8m8ia0m2q5r7"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="title" Margin="355,130,0,0"/>
     <!-- description → TEXTBOX -->
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,160,0,0" ToolTip="{Binding tooltip_description}" Text="{Binding ui_description}" Name="l8d045dmuit5k"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,160,0,0" ToolTip="{Binding tooltip_description}" Text="{Binding ui_description}" Name="l8m8ia0mzjs7w"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="description" Margin="355,160,0,0"/>
     <!-- company → TEXTBOX -->
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,190,0,0" ToolTip="{Binding tooltip_company}" Text="{Binding ui_company}" Name="l8d045dnkukrl"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,190,0,0" ToolTip="{Binding tooltip_company}" Text="{Binding ui_company}" Name="l8m8ia0mddtc9"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="company" Margin="355,190,0,0"/>
     <!-- product → TEXTBOX -->
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,220,0,0" ToolTip="{Binding tooltip_product}" Text="{Binding ui_product}" Name="l8d045do0yel9"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,220,0,0" ToolTip="{Binding tooltip_product}" Text="{Binding ui_product}" Name="l8m8ia0myxb4x"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="product" Margin="355,220,0,0"/>
     <!-- copyright → TEXTBOX -->
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,250,0,0" ToolTip="{Binding tooltip_copyright}" Text="{Binding ui_copyright}" Name="l8d045dobph48"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,250,0,0" ToolTip="{Binding tooltip_copyright}" Text="{Binding ui_copyright}" Name="l8m8ia0mj1g0g"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="copyright" Margin="355,250,0,0"/>
     <!-- trademark → TEXTBOX -->
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,280,0,0" ToolTip="{Binding tooltip_trademark}" Text="{Binding ui_trademark}" Name="l8d045dpq334d"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,280,0,0" ToolTip="{Binding tooltip_trademark}" Text="{Binding ui_trademark}" Name="l8m8ia0ndf1bn"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="trademark" Margin="355,280,0,0"/>
     <!-- version → TEXTBOX -->
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,310,0,0" ToolTip="{Binding tooltip_version}" Text="{Binding ui_version}" Name="l8d045dpx72k0"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="330" TextWrapping="Wrap" Margin="15,310,0,0" ToolTip="{Binding tooltip_version}" Text="{Binding ui_version}" Name="l8m8ia0nzp9zi"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="version" Margin="355,310,0,0"/>
     <!-- runtime → COMBOBOX
         - runtime20
         - runtime40
     -->
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="330" Margin="15,340,0,0" ToolTip="{Binding tooltip_runtime}" ItemsSource="{Binding ui_runtime}" SelectedIndex="1" Name="l8d045dpb06m3"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="330" Margin="15,340,0,0" ToolTip="{Binding tooltip_runtime}" ItemsSource="{Binding ui_runtime}" SelectedIndex="1" Name="l8m8ia0n3s1up"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="runtime" Margin="355,340,0,0"/>
     <!-- instructionSet → COMBOBOX
         - x86
         - x64
     -->
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="330" Margin="15,370,0,0" ToolTip="{Binding tooltip_instructionSet}" ItemsSource="{Binding ui_instructionSet}" SelectedIndex="0" Name="l8d045dqh3vgh"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="330" Margin="15,370,0,0" ToolTip="{Binding tooltip_instructionSet}" ItemsSource="{Binding ui_instructionSet}" SelectedIndex="0" Name="l8m8ia0ncnpgn"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="instructionSet" Margin="355,370,0,0"/>
     <!-- threadApartment → COMBOBOX
         - STA
         - MTA
     -->
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="330" Margin="15,400,0,0" ToolTip="{Binding tooltip_threadApartment}" ItemsSource="{Binding ui_threadApartment}" SelectedIndex="0" Name="l8d045dqp7exu"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="330" Margin="15,400,0,0" ToolTip="{Binding tooltip_threadApartment}" ItemsSource="{Binding ui_threadApartment}" SelectedIndex="0" Name="l8m8ia0nx3oot"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="threadApartment" Margin="355,400,0,0"/>
     <!-- prepareDebug → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="prepareDebug" Margin="490,40,0,0" ToolTip="{Binding tooltip_prepareDebug}" IsChecked="{Binding ui_prepareDebug}" Name="l8d045dq8mcqu"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="prepareDebug" Margin="490,40,0,0" ToolTip="{Binding tooltip_prepareDebug}" IsChecked="{Binding ui_prepareDebug}" Name="l8m8ia0nw8y1c"/>
     <!-- noConsole → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="noConsole" Margin="490,70,0,0" ToolTip="{Binding tooltip_noConsole}" IsChecked="{Binding ui_noConsole}" Name="l8d045dqeqtpk"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="noConsole" Margin="490,70,0,0" ToolTip="{Binding tooltip_noConsole}" IsChecked="{Binding ui_noConsole}" Name="l8m8ia0om0n7r"/>
     <!-- UNICODEEncoding → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="UNICODEEncoding" Margin="490,100,0,0" ToolTip="{Binding tooltip_UNICODEEncoding}" IsChecked="{Binding ui_UNICODEEncoding}" Name="l8d045dqcww1c"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="UNICODEEncoding" Margin="490,100,0,0" ToolTip="{Binding tooltip_UNICODEEncoding}" IsChecked="{Binding ui_UNICODEEncoding}" Name="l8m8ia0o2liwz"/>
     <!-- credentialGUI → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="credentialGUI" Margin="490,130,0,0" ToolTip="{Binding tooltip_credentialGUI}" IsChecked="{Binding ui_credentialGUI}" Name="l8d045drcbdoz"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="credentialGUI" Margin="490,130,0,0" ToolTip="{Binding tooltip_credentialGUI}" IsChecked="{Binding ui_credentialGUI}" Name="l8m8ia0orm0if"/>
     <!-- configFile → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="configFile" Margin="490,160,0,0" ToolTip="{Binding tooltip_configFile}" IsChecked="{Binding ui_configFile}" Name="l8d045drbfrrd"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="configFile" Margin="490,160,0,0" ToolTip="{Binding tooltip_configFile}" IsChecked="{Binding ui_configFile}" Name="l8m8ia0o6z4i9"/>
     <!-- noOutput → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="noOutput" Margin="490,190,0,0" ToolTip="{Binding tooltip_noOutput}" IsChecked="{Binding ui_noOutput}" Name="l8d045drknmsp"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="noOutput" Margin="490,190,0,0" ToolTip="{Binding tooltip_noOutput}" IsChecked="{Binding ui_noOutput}" Name="l8m8ia0obanlc"/>
     <!-- noError → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="noError" Margin="490,220,0,0" ToolTip="{Binding tooltip_noError}" IsChecked="{Binding ui_noError}" Name="l8d045drudizn"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="noError" Margin="490,220,0,0" ToolTip="{Binding tooltip_noError}" IsChecked="{Binding ui_noError}" Name="l8m8ia0oqamla"/>
     <!-- noVisualStyles → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="noVisualStyles" Margin="490,250,0,0" ToolTip="{Binding tooltip_noVisualStyles}" IsChecked="{Binding ui_noVisualStyles}" Name="l8d045dr2igvw"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="noVisualStyles" Margin="490,250,0,0" ToolTip="{Binding tooltip_noVisualStyles}" IsChecked="{Binding ui_noVisualStyles}" Name="l8m8ia0o95dgz"/>
     <!-- exitOnCancel → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="exitOnCancel" Margin="490,280,0,0" ToolTip="{Binding tooltip_exitOnCancel}" IsChecked="{Binding ui_exitOnCancel}" Name="l8d045drqjy78"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="exitOnCancel" Margin="490,280,0,0" ToolTip="{Binding tooltip_exitOnCancel}" IsChecked="{Binding ui_exitOnCancel}" Name="l8m8ia0ouvhs4"/>
     <!-- DPIAware → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="DPIAware" Margin="490,310,0,0" ToolTip="{Binding tooltip_DPIAware}" IsChecked="{Binding ui_DPIAware}" Name="l8d045ds1i2ek"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="DPIAware" Margin="490,310,0,0" ToolTip="{Binding tooltip_DPIAware}" IsChecked="{Binding ui_DPIAware}" Name="l8m8ia0ot1kqm"/>
     <!-- requireAdmin → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="requireAdmin" Margin="490,340,0,0" ToolTip="{Binding tooltip_requireAdmin}" IsChecked="{Binding ui_requireAdmin}" Name="l8d045dsk1lrm"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="requireAdmin" Margin="490,340,0,0" ToolTip="{Binding tooltip_requireAdmin}" IsChecked="{Binding ui_requireAdmin}" Name="l8m8ia0podzhb"/>
     <!-- supportOS → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="supportOS" Margin="490,370,0,0" ToolTip="{Binding tooltip_supportOS}" IsChecked="{Binding ui_supportOS}" Name="l8d045dss96li"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="supportOS" Margin="490,370,0,0" ToolTip="{Binding tooltip_supportOS}" IsChecked="{Binding ui_supportOS}" Name="l8m8ia0pihbq3"/>
     <!-- virtualize → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="virtualize" Margin="490,400,0,0" ToolTip="{Binding tooltip_virtualize}" IsChecked="{Binding ui_virtualize}" Name="l8d045ds0hcu8"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="virtualize" Margin="490,400,0,0" ToolTip="{Binding tooltip_virtualize}" IsChecked="{Binding ui_virtualize}" Name="l8m8ia0pbs7t6"/>
     <!-- longPaths → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="longPaths" Margin="490,430,0,0" ToolTip="{Binding tooltip_longPaths}" IsChecked="{Binding ui_longPaths}" Name="l8d045dt667id"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="longPaths" Margin="490,430,0,0" ToolTip="{Binding tooltip_longPaths}" IsChecked="{Binding ui_longPaths}" Name="l8m8ia0pmo613"/>
     <!-- extractable → CHECKBOX -->
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="extractable" Margin="490,460,0,0" ToolTip="{Binding tooltip_extractable}" IsChecked="{Binding ui_extractable}" Name="l8d045dth52jn"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="extractable" Margin="490,460,0,0" ToolTip="{Binding tooltip_extractable}" IsChecked="{Binding ui_extractable}" IsEnabled="false" Name="l8m8ia0pzc6cd"/>
     <!-- Compile-Button -->
-        <Button Content="Compile" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="490,490,0,0" Height="25" IsEnabled="{Binding state_compile}" Name="l8d045dtrr21o"/>
+        <Button Content="Compile" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="490,490,0,0" Height="25" IsEnabled="{Binding state_compile}" Name="l8m8ia0pckoub"/>
 </Grid>
 </TabItem>
 <TabItem Header="About" Visibility="Collapsed">
@@ -137,6 +137,8 @@ $Xaml = @"
 
 #region pre_code
 $PS2EXE_GUI_Verbose = $true
+
+Add-Type -AssemblyName System.Windows.Forms
 
 function Invoke-Hyperlink ($URL) {
     if($PS2EXE_GUI_Verbose){
@@ -264,6 +266,97 @@ function Invoke-UI_outputFile {
 function Invoke-UI_iconFile {
     $State.ui_iconFile = Invoke-PS2EXEGUI_OpenFileDialog -Filter "Icon-File (*.ico)|*.ico"
 }
+
+function Add-PS2EXE_Argument ($Key,$Value) {
+    if($null -eq $Value){
+        $global:PS2EXE_Arguments.Add("-"+$Key)
+    } else {
+        $global:PS2EXE_Arguments.Add("-"+$Key+' "'+$Value+'"')
+    }
+}
+
+function Invoke-PS2EXE {
+    $global:PS2EXE_Arguments = New-Object -TypeName System.Collections.ArrayList
+    
+    Add-PS2EXE_Argument -Key "File" -Value "./ps2exe.ps1"
+    
+    <#
+        KEY/VALUE-PARAMETERS
+    #>
+    @('inputFile','outputFile','iconFile','title','description','company','product','copyright','trademark','version') | ForEach-Object {
+        if($State.('ui_'+$_).Length -gt 0){
+            Add-PS2EXE_Argument -Key $_ -Value $State.('ui_'+$_)
+        }
+    }
+
+    <#
+        RUNTIME-PARAMETER
+    #>
+    switch($State.ui_runtime){
+        '[runtime20] .NET Framework 2.0/3.x for PowerShell 2.0' {
+            Add-PS2EXE_Argument -Key "runtime20"
+            break
+        }
+        '[runtime40] .NET Framework 4.x for PowerShell 3.0' {
+            Add-PS2EXE_Argument -Key "runtime40"
+            break
+        }
+    }
+
+    <#
+        INSTRUCTIONSET-PARAMETER
+    #>
+    switch($State.ui_instructionSet){
+        'x86 - 32-Bit Application' {
+            Add-PS2EXE_Argument -Key "x86"
+            break
+        }
+        'x64 - 64-Bit Application' {
+            Add-PS2EXE_Argument -Key "x64"
+            break
+        }
+    }
+
+    <#
+        threadApartment-PARAMETER
+    #>
+    switch($State.ui_threadApartment){
+        'STA - Single Thread Apartment' {
+            Add-PS2EXE_Argument -Key "STA"
+            break
+        }
+        'MTA - Multi Thread Apartment' {
+            Add-PS2EXE_Argument -Key "MTA"
+            break
+        }
+    }
+    
+    <#
+        BOOLEAN|SWITCH-PARAMETERS
+    #>
+    @('prepareDebug','noConsole','UNICODEEncoding','credentialGUI','configFile','noOutput','noError','noVisualStyles','exitOnCancel','DPIAware','requireAdmin','supportOS','virtualize','longPaths') | ForEach-Object {
+        if($State.('ui_'+$_) -eq $true){
+            Add-PS2EXE_Argument -Key $_
+        }
+    }
+    
+    <#
+        EXTRACTABLE
+        - is not supported by MScholtes (https://github.com/MScholtes/TechNet-Gallery/issues/3)
+        - this needs to be handled separately
+    #>
+    
+    <#
+    $PS2EXE_SOURCE = Get-Content -Path ".\ps2exe.ps1"
+    $PS2EXE_SOURCE = $PS2EXE_SOURCE -replace 's.StartsWith("-extdummt".Replace("dumm", "rac"), StringComparison.InvariantCultureIgnoreCase)','false'
+    $PS2EXE_SOURCE = [string]$PS2EXE_SOURCE
+    $PS2EXE_SOURCE = [Scriptblock]::Create($PS2EXE_SOURCE)
+    $PS2EXE_LOG = Invoke-Command -ScriptBlock $PS2EXE_SOURCE -ArgumentList $global:PS2EXE_Arguments
+    #>
+    Start-Process -FilePath "powershell" -ArgumentList $global:PS2EXE_Arguments -NoNewWindow
+    Write-Host $global:PS2EXE_Arguments
+    Write-Host $PS2EXE_LOG
+}
 #endregion 
 
 
@@ -278,11 +371,12 @@ $Window = [Windows.Markup.XamlReader]::Parse($Xaml)
 $xml.SelectNodes("//*[@Name]") | ForEach-Object { Set-Variable -Name $_.Name -Value $Window.FindName($_.Name) }
 
 
-$l8d045djnig6z.Add_Loaded({Invoke-WindowLoaded $this $_})
+$l8m8ia0kma6kq.Add_Loaded({Invoke-WindowLoaded $this $_})
 $ui_inputFile.Add_TextChanged({Test-PS2EXEGUI_Compile $this $_})
-$l8d045dl6tlyo.Add_Click({Invoke-UI_inputFile $this $_})
-$l8d045dl0iq23.Add_Click({Invoke-UI_outputFile $this $_})
-$l8d045dmbmyaw.Add_Click({Invoke-UI_iconFile $this $_})
+$l8m8ia0ludavg.Add_Click({Invoke-UI_inputFile $this $_})
+$l8m8ia0lni99g.Add_Click({Invoke-UI_outputFile $this $_})
+$l8m8ia0myic4e.Add_Click({Invoke-UI_iconFile $this $_})
+$l8m8ia0pckoub.Add_Click({Invoke-PS2EXE $this $_})
 $ui_dockpanel12.Add_Click({Invoke-Hyperlink -URL "https://github.com/MScholtes" $this $_})
 $ui_dockpanel13.Add_Click({Invoke-Hyperlink -URL "https://poshgui.com" $this $_})
 $ui_dockpanel14.Add_Click({Invoke-Hyperlink -URL "https://twitter.com/poshgui" $this $_})
@@ -394,61 +488,128 @@ $Window.DataContext = $DataContext
 Set-Binding -Target $ui_dockpanel11 -Property $([System.Windows.Controls.TabControl]::SelectedIndexProperty) -Index 0 -Name "TabIndex"  
 Set-Binding -Target $ui_inputFile -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 29 -Name "tooltip_inputFile"  
 Set-Binding -Target $ui_inputFile -Property $([System.Windows.Controls.TextBox]::BorderBrushProperty) -Index 58 -Name "state_inputFile"  
-Set-Binding -Target $l8d045dl1audl -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 30 -Name "tooltip_outputFile"  
-Set-Binding -Target $l8d045dl1audl -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 2 -Name "ui_outputFile"  
-Set-Binding -Target $l8d045dm8aqg1 -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 31 -Name "tooltip_iconFile"  
-Set-Binding -Target $l8d045dm8aqg1 -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 3 -Name "ui_iconFile"  
-Set-Binding -Target $l8d045dmpv5dc -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 32 -Name "tooltip_title"  
-Set-Binding -Target $l8d045dmpv5dc -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 4 -Name "ui_title"  
-Set-Binding -Target $l8d045dmuit5k -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 33 -Name "tooltip_description"  
-Set-Binding -Target $l8d045dmuit5k -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 5 -Name "ui_description"  
-Set-Binding -Target $l8d045dnkukrl -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 34 -Name "tooltip_company"  
-Set-Binding -Target $l8d045dnkukrl -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 6 -Name "ui_company"  
-Set-Binding -Target $l8d045do0yel9 -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 35 -Name "tooltip_product"  
-Set-Binding -Target $l8d045do0yel9 -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 7 -Name "ui_product"  
-Set-Binding -Target $l8d045dobph48 -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 36 -Name "tooltip_copyright"  
-Set-Binding -Target $l8d045dobph48 -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 8 -Name "ui_copyright"  
-Set-Binding -Target $l8d045dpq334d -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 37 -Name "tooltip_trademark"  
-Set-Binding -Target $l8d045dpq334d -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 9 -Name "ui_trademark"  
-Set-Binding -Target $l8d045dpx72k0 -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 38 -Name "tooltip_version"  
-Set-Binding -Target $l8d045dpx72k0 -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 10 -Name "ui_version"  
-Set-Binding -Target $l8d045dpb06m3 -Property $([System.Windows.Controls.ComboBox]::ToolTipProperty) -Index 39 -Name "tooltip_runtime"  
-Set-Binding -Target $l8d045dpb06m3 -Property $([System.Windows.Controls.ComboBox]::ItemsSourceProperty) -Index 11 -Name "ui_runtime"  
-Set-Binding -Target $l8d045dqh3vgh -Property $([System.Windows.Controls.ComboBox]::ToolTipProperty) -Index 40 -Name "tooltip_instructionSet"  
-Set-Binding -Target $l8d045dqh3vgh -Property $([System.Windows.Controls.ComboBox]::ItemsSourceProperty) -Index 12 -Name "ui_instructionSet"  
-Set-Binding -Target $l8d045dqp7exu -Property $([System.Windows.Controls.ComboBox]::ToolTipProperty) -Index 41 -Name "tooltip_threadApartment"  
-Set-Binding -Target $l8d045dqp7exu -Property $([System.Windows.Controls.ComboBox]::ItemsSourceProperty) -Index 13 -Name "ui_threadApartment"  
-Set-Binding -Target $l8d045dq8mcqu -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 42 -Name "tooltip_prepareDebug"  
-Set-Binding -Target $l8d045dq8mcqu -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 14 -Name "ui_prepareDebug"  
-Set-Binding -Target $l8d045dqeqtpk -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 43 -Name "tooltip_noConsole"  
-Set-Binding -Target $l8d045dqeqtpk -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 15 -Name "ui_noConsole"  
-Set-Binding -Target $l8d045dqcww1c -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 44 -Name "tooltip_UNICODEEncoding"  
-Set-Binding -Target $l8d045dqcww1c -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 16 -Name "ui_UNICODEEncoding"  
-Set-Binding -Target $l8d045drcbdoz -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 45 -Name "tooltip_credentialGUI"  
-Set-Binding -Target $l8d045drcbdoz -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 17 -Name "ui_credentialGUI"  
-Set-Binding -Target $l8d045drbfrrd -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 46 -Name "tooltip_configFile"  
-Set-Binding -Target $l8d045drbfrrd -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 18 -Name "ui_configFile"  
-Set-Binding -Target $l8d045drknmsp -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 47 -Name "tooltip_noOutput"  
-Set-Binding -Target $l8d045drknmsp -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 19 -Name "ui_noOutput"  
-Set-Binding -Target $l8d045drudizn -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 48 -Name "tooltip_noError"  
-Set-Binding -Target $l8d045drudizn -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 20 -Name "ui_noError"  
-Set-Binding -Target $l8d045dr2igvw -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 49 -Name "tooltip_noVisualStyles"  
-Set-Binding -Target $l8d045dr2igvw -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 21 -Name "ui_noVisualStyles"  
-Set-Binding -Target $l8d045drqjy78 -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 50 -Name "tooltip_exitOnCancel"  
-Set-Binding -Target $l8d045drqjy78 -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 22 -Name "ui_exitOnCancel"  
-Set-Binding -Target $l8d045ds1i2ek -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 51 -Name "tooltip_DPIAware"  
-Set-Binding -Target $l8d045ds1i2ek -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 23 -Name "ui_DPIAware"  
-Set-Binding -Target $l8d045dsk1lrm -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 52 -Name "tooltip_requireAdmin"  
-Set-Binding -Target $l8d045dsk1lrm -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 24 -Name "ui_requireAdmin"  
-Set-Binding -Target $l8d045dss96li -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 53 -Name "tooltip_supportOS"  
-Set-Binding -Target $l8d045dss96li -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 25 -Name "ui_supportOS"  
-Set-Binding -Target $l8d045ds0hcu8 -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 54 -Name "tooltip_virtualize"  
-Set-Binding -Target $l8d045ds0hcu8 -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 26 -Name "ui_virtualize"  
-Set-Binding -Target $l8d045dt667id -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 55 -Name "tooltip_longPaths"  
-Set-Binding -Target $l8d045dt667id -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 27 -Name "ui_longPaths"  
-Set-Binding -Target $l8d045dth52jn -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 56 -Name "tooltip_extractable"  
-Set-Binding -Target $l8d045dth52jn -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 28 -Name "ui_extractable"  
-Set-Binding -Target $l8d045dtrr21o -Property $([System.Windows.Controls.Button]::IsEnabledProperty) -Index 57 -Name "state_compile"  
+Set-Binding -Target $l8m8ia0ljrvjs -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 30 -Name "tooltip_outputFile"  
+Set-Binding -Target $l8m8ia0ljrvjs -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 2 -Name "ui_outputFile"  
+Set-Binding -Target $l8m8ia0leekw4 -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 31 -Name "tooltip_iconFile"  
+Set-Binding -Target $l8m8ia0leekw4 -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 3 -Name "ui_iconFile"  
+Set-Binding -Target $l8m8ia0m2q5r7 -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 32 -Name "tooltip_title"  
+Set-Binding -Target $l8m8ia0m2q5r7 -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 4 -Name "ui_title"  
+Set-Binding -Target $l8m8ia0mzjs7w -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 33 -Name "tooltip_description"  
+Set-Binding -Target $l8m8ia0mzjs7w -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 5 -Name "ui_description"  
+Set-Binding -Target $l8m8ia0mddtc9 -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 34 -Name "tooltip_company"  
+Set-Binding -Target $l8m8ia0mddtc9 -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 6 -Name "ui_company"  
+Set-Binding -Target $l8m8ia0myxb4x -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 35 -Name "tooltip_product"  
+Set-Binding -Target $l8m8ia0myxb4x -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 7 -Name "ui_product"  
+Set-Binding -Target $l8m8ia0mj1g0g -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 36 -Name "tooltip_copyright"  
+Set-Binding -Target $l8m8ia0mj1g0g -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 8 -Name "ui_copyright"  
+Set-Binding -Target $l8m8ia0ndf1bn -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 37 -Name "tooltip_trademark"  
+Set-Binding -Target $l8m8ia0ndf1bn -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 9 -Name "ui_trademark"  
+Set-Binding -Target $l8m8ia0nzp9zi -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 38 -Name "tooltip_version"  
+Set-Binding -Target $l8m8ia0nzp9zi -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 10 -Name "ui_version"  
+Set-Binding -Target $l8m8ia0n3s1up -Property $([System.Windows.Controls.ComboBox]::ToolTipProperty) -Index 39 -Name "tooltip_runtime"  
+Set-Binding -Target $l8m8ia0n3s1up -Property $([System.Windows.Controls.ComboBox]::ItemsSourceProperty) -Index 11 -Name "ui_runtime"  
+Set-Binding -Target $l8m8ia0ncnpgn -Property $([System.Windows.Controls.ComboBox]::ToolTipProperty) -Index 40 -Name "tooltip_instructionSet"  
+Set-Binding -Target $l8m8ia0ncnpgn -Property $([System.Windows.Controls.ComboBox]::ItemsSourceProperty) -Index 12 -Name "ui_instructionSet"  
+Set-Binding -Target $l8m8ia0nx3oot -Property $([System.Windows.Controls.ComboBox]::ToolTipProperty) -Index 41 -Name "tooltip_threadApartment"  
+Set-Binding -Target $l8m8ia0nx3oot -Property $([System.Windows.Controls.ComboBox]::ItemsSourceProperty) -Index 13 -Name "ui_threadApartment"  
+Set-Binding -Target $l8m8ia0nw8y1c -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 42 -Name "tooltip_prepareDebug"  
+Set-Binding -Target $l8m8ia0nw8y1c -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 14 -Name "ui_prepareDebug"  
+Set-Binding -Target $l8m8ia0om0n7r -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 43 -Name "tooltip_noConsole"  
+Set-Binding -Target $l8m8ia0om0n7r -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 15 -Name "ui_noConsole"  
+Set-Binding -Target $l8m8ia0o2liwz -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 44 -Name "tooltip_UNICODEEncoding"  
+Set-Binding -Target $l8m8ia0o2liwz -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 16 -Name "ui_UNICODEEncoding"  
+Set-Binding -Target $l8m8ia0orm0if -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 45 -Name "tooltip_credentialGUI"  
+Set-Binding -Target $l8m8ia0orm0if -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 17 -Name "ui_credentialGUI"  
+Set-Binding -Target $l8m8ia0o6z4i9 -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 46 -Name "tooltip_configFile"  
+Set-Binding -Target $l8m8ia0o6z4i9 -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 18 -Name "ui_configFile"  
+Set-Binding -Target $l8m8ia0obanlc -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 47 -Name "tooltip_noOutput"  
+Set-Binding -Target $l8m8ia0obanlc -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 19 -Name "ui_noOutput"  
+Set-Binding -Target $l8m8ia0oqamla -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 48 -Name "tooltip_noError"  
+Set-Binding -Target $l8m8ia0oqamla -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 20 -Name "ui_noError"  
+Set-Binding -Target $l8m8ia0o95dgz -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 49 -Name "tooltip_noVisualStyles"  
+Set-Binding -Target $l8m8ia0o95dgz -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 21 -Name "ui_noVisualStyles"  
+Set-Binding -Target $l8m8ia0ouvhs4 -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 50 -Name "tooltip_exitOnCancel"  
+Set-Binding -Target $l8m8ia0ouvhs4 -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 22 -Name "ui_exitOnCancel"  
+Set-Binding -Target $l8m8ia0ot1kqm -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 51 -Name "tooltip_DPIAware"  
+Set-Binding -Target $l8m8ia0ot1kqm -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 23 -Name "ui_DPIAware"  
+Set-Binding -Target $l8m8ia0podzhb -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 52 -Name "tooltip_requireAdmin"  
+Set-Binding -Target $l8m8ia0podzhb -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 24 -Name "ui_requireAdmin"  
+Set-Binding -Target $l8m8ia0pihbq3 -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 53 -Name "tooltip_supportOS"  
+Set-Binding -Target $l8m8ia0pihbq3 -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 25 -Name "ui_supportOS"  
+Set-Binding -Target $l8m8ia0pbs7t6 -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 54 -Name "tooltip_virtualize"  
+Set-Binding -Target $l8m8ia0pbs7t6 -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 26 -Name "ui_virtualize"  
+Set-Binding -Target $l8m8ia0pmo613 -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 55 -Name "tooltip_longPaths"  
+Set-Binding -Target $l8m8ia0pmo613 -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 27 -Name "ui_longPaths"  
+Set-Binding -Target $l8m8ia0pzc6cd -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 56 -Name "tooltip_extractable"  
+Set-Binding -Target $l8m8ia0pzc6cd -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 28 -Name "ui_extractable"  
+Set-Binding -Target $l8m8ia0pckoub -Property $([System.Windows.Controls.Button]::IsEnabledProperty) -Index 57 -Name "state_compile"  
+
+
+
+
+$Global:SyncHash = [HashTable]::Synchronized(@{})
+$SyncHash.Window = $Window
+$Jobs = [System.Collections.ArrayList]::Synchronized([System.Collections.ArrayList]::new())
+$initialSessionState = [initialsessionstate]::CreateDefault()
+
+Function Start-RunspaceTask
+{
+    [CmdletBinding()]
+    Param([Parameter(Mandatory=$True,Position=0)][ScriptBlock]$ScriptBlock,
+          [Parameter(Mandatory=$True,Position=1)][PSObject[]]$ProxyVars)
+            
+    $Runspace = [RunspaceFactory]::CreateRunspace($InitialSessionState)
+    $Runspace.ApartmentState = 'STA'
+    $Runspace.ThreadOptions  = 'ReuseThread'
+    $Runspace.Open()
+    ForEach($Var in $ProxyVars){$Runspace.SessionStateProxy.SetVariable($Var.Name, $Var.Variable)}
+    $Thread = [PowerShell]::Create('NewRunspace')
+    $Thread.AddScript($ScriptBlock) | Out-Null
+    $Thread.Runspace = $Runspace
+    [Void]$Jobs.Add([PSObject]@{ PowerShell = $Thread ; Runspace = $Thread.BeginInvoke() })
+}
+
+$JobCleanupScript = {
+    Do
+    {    
+        ForEach($Job in $Jobs)
+        {            
+            If($Job.Runspace.IsCompleted)
+            {
+                [Void]$Job.Powershell.EndInvoke($Job.Runspace)
+                $Job.PowerShell.Runspace.Close()
+                $Job.PowerShell.Runspace.Dispose()
+                $Job.Powershell.Dispose()
+                
+                $Jobs.Remove($Job)
+            }
+        }
+
+        Start-Sleep -Seconds 1
+    }
+    While ($SyncHash.CleanupJobs)
+}
+
+Get-ChildItem Function: | Where-Object {$_.name -notlike "*:*"} |  select name -ExpandProperty name |
+ForEach-Object {       
+    $Definition = Get-Content "function:$_" -ErrorAction Stop
+    $SessionStateFunction = New-Object System.Management.Automation.Runspaces.SessionStateFunctionEntry -ArgumentList "$_", $Definition
+    $InitialSessionState.Commands.Add($SessionStateFunction)
+}
+
+
+$Window.Add_Closed({
+    Write-Verbose 'Halt runspace cleanup job processing'
+    $SyncHash.CleanupJobs = $False
+})
+
+$SyncHash.CleanupJobs = $True
+function Async($scriptBlock){ Start-RunspaceTask $scriptBlock @([PSObject]@{ Name='DataContext' ; Variable=$DataContext},[PSObject]@{Name="State"; Variable=$State},[PSObject]@{Name = "SyncHash";Variable = $SyncHash})}
+
+Start-RunspaceTask $JobCleanupScript @([PSObject]@{ Name='Jobs' ; Variable=$Jobs })
+
+
+
 $Window.ShowDialog()
 
 
