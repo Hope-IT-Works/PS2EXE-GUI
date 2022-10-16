@@ -18,8 +18,8 @@ _due to major delays and inconsistency, PS2EXE-GUI is currently refactoring_
 | add tooltip to all ps2exe fields | ✅ | ✅ |
 | add about page                   | ✅ | ✅ |
 | mark required ps2exe fields      | ✅ | ✅ |
-| get ps2exe call done             | ⏳ | due 16.10.2022 |
-| add ps2exe-script update         | ⏳ | due 16.10.2022 |
+| get ps2exe call done             | ✅ | ✅ |
+| add ps2exe-script update         | ⏳ | due 23.10.2022 |
 | release first build              | ⏳ | due 23.10.2022 |
 | add save files                   | ⏳ | Q4/2022 |
 | release second build             | ⏳ | Q4/2022 |
