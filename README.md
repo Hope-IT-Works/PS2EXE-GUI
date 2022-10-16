@@ -61,7 +61,7 @@ PS2EXE-GUI is still in developement state, but is usable.
 | supportOS | ✅ | ❌ |
 | virtualize | ✅ | ❌ |
 | longPaths | ✅ | ❌ |
-| **BONUS:** extractable[^extractable] | ✅ | ❌ |
+| **BONUS:** extractable[^extractable] | ⏳(WIP) | ❌ |
 
 [^lcid-not-necessary]: Doesn't seem necessary. If it is needed, please open an [issue](https://github.com/Hope-IT-Works/PS2EXE-GUI/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=lcid-parameter%20is%20necessary).
 [^extractable]: Allows you to choose, if the user is able to extract the `.ps1` out of the `.exe` file. Is and will not be supported by [PS2EXE](https://github.com/MScholtes/Win-PS2EXE/blob/master/ps2exe.ps1) by default ([issue](https://github.com/MScholtes/TechNet-Gallery/issues/3)), but PS2EXE-GUI takes care of this.
