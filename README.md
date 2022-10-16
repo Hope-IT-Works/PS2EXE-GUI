@@ -10,7 +10,9 @@ _a release will be added soon (release due 23.10.2022)_
 
 ## Developement Progress
 
-_due to major delays and inconsistency, PS2EXE-GUI is currently refactoring_
+_Refactoring done!_
+
+PS2EXE-GUI is still in developement state, but is usable.
 
 | Feature                          | Status | ETA |
 |----------------------------------|--------|-----|
@@ -18,8 +20,8 @@ _due to major delays and inconsistency, PS2EXE-GUI is currently refactoring_
 | add tooltip to all ps2exe fields | ✅ | ✅ |
 | add about page                   | ✅ | ✅ |
 | mark required ps2exe fields      | ✅ | ✅ |
-| get ps2exe call done             | ⏳ | due 16.10.2022 |
-| add ps2exe-script update         | ⏳ | due 16.10.2022 |
+| get ps2exe call done             | ✅ | ✅ |
+| add ps2exe-script update         | ⏳ | due 23.10.2022 |
 | release first build              | ⏳ | due 23.10.2022 |
 | add save files                   | ⏳ | Q4/2022 |
 | release second build             | ⏳ | Q4/2022 |
@@ -59,14 +61,14 @@ _due to major delays and inconsistency, PS2EXE-GUI is currently refactoring_
 | supportOS | ✅ | ❌ |
 | virtualize | ✅ | ❌ |
 | longPaths | ✅ | ❌ |
-| **BONUS:** extractable[^extractable] | ✅ | ❌ |
+| **BONUS:** extractable[^extractable] | ⏳(WIP) | ❌ |
 
 [^lcid-not-necessary]: Doesn't seem necessary. If it is needed, please open an [issue](https://github.com/Hope-IT-Works/PS2EXE-GUI/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=lcid-parameter%20is%20necessary).
 [^extractable]: Allows you to choose, if the user is able to extract the `.ps1` out of the `.exe` file. Is and will not be supported by [PS2EXE](https://github.com/MScholtes/Win-PS2EXE/blob/master/ps2exe.ps1) by default ([issue](https://github.com/MScholtes/TechNet-Gallery/issues/3)), but PS2EXE-GUI takes care of this.
 
 ## Screenshot
 
-![Screenshot](https://user-images.githubusercontent.com/52013820/192851884-003dac29-bece-4964-bef8-9948bd0a8494.png)
+<img alt="Screenshot from the Main Page" src="https://user-images.githubusercontent.com/52013820/192851884-003dac29-bece-4964-bef8-9948bd0a8494.png" width="50%" style="display: inline; margin: 0; padding: 0;"><img alt="Screenshot from the Console Page" src="https://user-images.githubusercontent.com/52013820/196063461-90e4f9a0-71f7-4c0d-b536-4c9756b4bee2.png" width="50%" style="display: inline; margin: 0; padding: 0;">
 
 ## About the project
 
