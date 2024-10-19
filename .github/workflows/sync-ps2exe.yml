@@ -2,8 +2,8 @@ name: Monitor and Sync ps2exe.ps1 from another repository
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Tägliche Überprüfung um Mitternacht
-  workflow_dispatch:  # Manuelle Ausführung möglich
+    - cron: '0 0 * * *'  # Daily check at midnight
+  workflow_dispatch:  # Manual check
 
 jobs:
   check-and-sync:
@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       # 2. Download ps2exe.ps1 from the external repository
-      - name: Download ps2exe.ps1 from Win-PS2EXE
+      - name: Download ps2exe.ps1 from MScholtes/Win-PS2EXE
         run: |
           curl -s https://raw.githubusercontent.com/MScholtes/Win-PS2EXE/master/ps2exe.ps1 -o external_ps2exe.ps1
 
@@ -53,7 +53,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add -f src/ps2exe.ps1
-          git commit -m "Update ps2exe.ps1 from Win-PS2EXE" || echo "No changes to commit."
+          git commit -m "Update ps2exe.ps1 from MScholtes/Win-PS2EXE" || echo "No changes to commit."
 
       # 6. Create a Pull Request if changes were made
       - name: Create a pull request
@@ -61,7 +61,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Sync ps2exe.ps1 from Win-PS2EXE"
+          commit-message: "Sync ps2exe.ps1 from MScholtes/Win-PS2EXE"
           branch: sync-ps2exe-update
-          title: "Update ps2exe.ps1 from upstream repository"
-          body: "Automated pull request to sync the latest changes from Win-PS2EXE repository."
+          title: "Update ps2exe.ps1 from Win-PS2EXE repository"
+          body: "Automated pull request to sync the latest changes from [MScholtes/Win-PS2EXE](https://github.com/MScholtes/Win-PS2EXE/blob/master/ps2exe.ps1) repository."
