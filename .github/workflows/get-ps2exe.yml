@@ -1,8 +1,8 @@
-name: Monitor and Sync ps2exe.ps1 from MScholtes/Win-PS2EXE repository
+name: Monitor and Sync ps2exe.ps1 from another repository
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Prüfe täglich um Mitternacht
+    - cron: '0 0 * * *'  # Tägliche Überprüfung um Mitternacht
   workflow_dispatch:  # Manuelle Ausführung möglich
 
 jobs:
@@ -10,44 +10,57 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out your repository
+      # 1. Check out this repository
       - name: Check out this repository
         uses: actions/checkout@v2
 
-      # 2. Get the latest ps2exe.ps1 from the external repository
+      # 2. Download ps2exe.ps1 from the external repository
       - name: Download ps2exe.ps1 from Win-PS2EXE
         run: |
           curl -s https://raw.githubusercontent.com/MScholtes/Win-PS2EXE/master/ps2exe.ps1 -o external_ps2exe.ps1
 
-      # 3. Compare ps2exe.ps1 from your repository with the external one
+      # 3. Check if ps2exe.ps1 exists in your repository
+      - name: Check if ps2exe.ps1 exists
+        id: file_check
+        run: |
+          if [ -f src/ps2exe.ps1 ]; then
+            echo "ps2exe.ps1 exists."
+            echo "exists=true" >> $GITHUB_ENV
+          else
+            echo "ps2exe.ps1 does not exist."
+            echo "exists=false" >> $GITHUB_ENV
+
+      # 4. If the file exists, compare it with the external version
       - name: Compare the two files
+        if: env.exists == 'true'
         id: file_compare
         run: |
-          if diff src/ps2exe.ps1 external_ps2exe.ps1 > /dev/null; then
+          if diff src/ps2exe.ps1 external_ps2exe.ps1; then
             echo "No differences found"
             echo "changed=false" >> $GITHUB_ENV
           else
             echo "Differences found"
             echo "changed=true" >> $GITHUB_ENV
 
-      # 4. If changes are detected, commit the new version and push it
-      - name: Commit new version if changed
-        if: env.changed == 'true'
+      # 5. If the file does not exist or there are changes, overwrite and commit
+      - name: Handle missing or changed ps2exe.ps1
+        if: env.exists == 'false' || env.changed == 'true'
         run: |
-          mv external_ps2exe.ps1 src/ps2exe.ps1  # Replace the old file with the new one
+          echo "Updating ps2exe.ps1 in repository."
+          mv external_ps2exe.ps1 src/ps2exe.ps1  # Overwrite the file or add it if missing
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add src/ps2exe.ps1
           git commit -m "Update ps2exe.ps1 from Win-PS2EXE"
           git push origin main
 
-      # 5. Create a Pull Request if changes were made
+      # 6. Create a Pull Request if changes were made
       - name: Create a pull request
-        if: env.changed == 'true'
+        if: env.changed == 'true' || env.exists == 'false'
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Update ps2exe.ps1 from Win-PS2EXE"
+          commit-message: "Sync ps2exe.ps1 from Win-PS2EXE"
           branch: sync-ps2exe-update
           title: "Update ps2exe.ps1 from upstream repository"
           body: "Automated pull request to sync the latest changes from Win-PS2EXE repository."
