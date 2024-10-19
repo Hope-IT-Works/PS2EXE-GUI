@@ -29,6 +29,7 @@ jobs:
           else
             echo "ps2exe.ps1 does not exist."
             echo "exists=false" >> $GITHUB_ENV
+          fi  # Hier das 'fi' hinzufügen
 
       # 4. If the file exists, compare it with the external version
       - name: Compare the two files
@@ -41,6 +42,7 @@ jobs:
           else
             echo "Differences found"
             echo "changed=true" >> $GITHUB_ENV
+          fi  # Hier das 'fi' hinzufügen
 
       # 5. If the file does not exist or there are changes, overwrite and commit
       - name: Handle missing or changed ps2exe.ps1
