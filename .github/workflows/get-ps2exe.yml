@@ -52,7 +52,7 @@ jobs:
           mv external_ps2exe.ps1 src/ps2exe.ps1  # Overwrite the file or add it if missing
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add src/ps2exe.ps1
+          git add -f src/ps2exe.ps1
           git commit -m "Update ps2exe.ps1 from Win-PS2EXE"
           git push origin main
 
