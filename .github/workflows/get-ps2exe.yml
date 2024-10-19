@@ -29,7 +29,7 @@ jobs:
           else
             echo "ps2exe.ps1 does not exist."
             echo "exists=false" >> $GITHUB_ENV
-          fi  # Hier das 'fi' hinzufügen
+          fi
 
       # 4. If the file exists, compare it with the external version
       - name: Compare the two files
@@ -42,10 +42,10 @@ jobs:
           else
             echo "Differences found"
             echo "changed=true" >> $GITHUB_ENV
-          fi  # Hier das 'fi' hinzufügen
+          fi
 
-      # 5. If the file does not exist or there are changes, overwrite and commit
-      - name: Handle missing or changed ps2exe.ps1
+      # 5. If the file does not exist or there are changes, prepare the update for a Pull Request
+      - name: Prepare for Pull Request
         if: env.exists == 'false' || env.changed == 'true'
         run: |
           echo "Updating ps2exe.ps1 in repository."
@@ -53,8 +53,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add -f src/ps2exe.ps1
-          git commit -m "Update ps2exe.ps1 from Win-PS2EXE"
-          git push origin main
+          git commit -m "Update ps2exe.ps1 from Win-PS2EXE" || echo "No changes to commit."
 
       # 6. Create a Pull Request if changes were made
       - name: Create a pull request
