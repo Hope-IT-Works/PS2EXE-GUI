@@ -12,7 +12,7 @@ jobs:
     steps:
       # 1. Check out your repository
       - name: Check out this repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # 2. Get the latest ps2exe.ps1 from the external repository
       - name: Download ps2exe.ps1 from Win-PS2EXE
