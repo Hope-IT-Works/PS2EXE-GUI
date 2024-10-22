@@ -2,16 +2,16 @@
 
 # PS2EXE-GUI
 
-This project provides a advanced graphical user interface for [PS2EXE](https://github.com/MScholtes/Win-PS2EXE).<br><br>
+This project provides a advanced graphical user interface for [PS2EXE](https://github.com/MScholtes/Win-PS2EXE), which is a PowerShell-script to Windows-executable converter (`ps1`→`exe`).<br><br>
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c03fe42c3a28471dbc99e92918f4fc20)](https://www.codacy.com/gh/Hope-IT-Works/PS2EXE-GUI/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Hope-IT-Works/PS2EXE-GUI&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui/badge)](https://www.codefactor.io/repository/github/hope-it-works/ps2exe-gui)
 
-## Developement Progress
+## Development Progress
 
-PS2EXE-GUI is still in developement state, but is usable.
+PS2EXE-GUI is still in development but is usable.
 
-As you may noticed, the project was not updated for a while. I will try to get back to it as soon as possible. I'm sorry for the inconvenience.
+As you may have noticed, the project has not been updated for a while. I will get back to it as soon as possible. I'm sorry for the inconvenience.
 
 | Feature                          | Status | ETA |
 |----------------------------------|--------|-----|
@@ -63,7 +63,7 @@ As you may noticed, the project was not updated for a while. I will try to get b
 | longPaths        | ✅ | ❌ |
 | **BONUS:** extractable[^extractable] | ⏳(TODO) | ❌ |
 
-[^extractable]: Allows you to choose, if the user is able to extract the `.ps1` out of the `.exe` file. Is and will not be supported by [PS2EXE](https://github.com/MScholtes/Win-PS2EXE/blob/master/ps2exe.ps1) by default ([issue](https://github.com/MScholtes/TechNet-Gallery/issues/3)), but PS2EXE-GUI takes care of this.
+[^extractable]: Allows you to choose, if the user can extract the `.ps1` out of the `.exe` file. Is and will not be supported by [PS2EXE](https://github.com/MScholtes/Win-PS2EXE/blob/master/ps2exe.ps1) by default ([issue](https://github.com/MScholtes/TechNet-Gallery/issues/3)), but PS2EXE-GUI takes care of this.
 
 ## Screenshot
 
