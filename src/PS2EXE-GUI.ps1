@@ -385,7 +385,6 @@ function Invoke-PS2EXE {
         Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+'CALL: '+[string]$PS2EXE_CMD) -NoLineBreak
         $PS2EXE_CALL = cmd /U /C $PS2EXE_CMD
         $PS2EXE_CALL = $PS2EXE_CALL -join $PS_LNB
-        Set-Content -Path "C:\Users\Tobias\GitHub\PS2EXE-GUI\src\Log.txt" -Value ($PS2EXE_CALL) -NoNewline
         if($LASTEXITCODE -ne 0){
             Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+'ERROR: '+[string]$Error)
             Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+'ERROR: '+[string](Get-Error))
