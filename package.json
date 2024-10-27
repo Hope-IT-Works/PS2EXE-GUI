@@ -1,3 +1,28 @@
-"dependencies":{
-  "Win-PS2EXE":"MScholtes/Win-PS2EXE"
+{
+  "name": "ps2exe-gui",
+  "version": "1.0.0",
+  "description": "advanced graphical user interface for ps2exe",
+  "dependencies": {
+    "ps2exe": "MScholtes/Win-PS2EXE"
+  },
+  "devDependencies": {
+    "PSScriptAnalyzer": "PowerShell/PSScriptAnalyzer"
+  },
+  "main": "src/PS2EXE-GUI.ps1",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hope-IT-Works/PS2EXE-GUI.git"
+  },
+  "author": "Hope-IT-Works",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Hope-IT-Works/PS2EXE-GUI/issues"
+  },
+  "homepage": "https://github.com/Hope-IT-Works/PS2EXE-GUI#readme"
 }

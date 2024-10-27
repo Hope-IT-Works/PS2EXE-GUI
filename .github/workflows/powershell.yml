@@ -36,8 +36,7 @@ jobs:
           # The below set up runs PSScriptAnalyzer to your entire repository and runs some basic security rules.
           path: .\
           recurse: true
-          # Include your own basic security rules. Removing this option will run all the rules
-          #includeRule: '"PSAvoidGlobalAliases", "PSAvoidUsingConvertToSecureStringWithPlainText"'
+          excludeRule: '"PSAvoidTrailingWhitespace", "PSAvoidUsingWriteHost"'
           output: results.sarif
 
       # Upload the SARIF file generated in the previous step

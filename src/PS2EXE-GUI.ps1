@@ -6,7 +6,7 @@
 Add-Type -AssemblyName PresentationCore, PresentationFramework
 
 $Xaml = @"
-<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="640" Height="620" Title="PS2EXE-GUI" ResizeMode="NoResize" Name="dom_window">
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="640" Height="620" Title="PS2EXE-GUI" ResizeMode="NoResize" Name="dom_window" WindowStartupLocation="CenterScreen">
 <!--d9102811-1fab-4eca-a3f6-f5b6db64722b-->
 <TabControl Margin="0,0,0,0" SelectedIndex="{Binding TabIndex}" BorderThickness="0,0,0,0" Name="ui_dockpanel11">
 <TabItem Header="Main" Visibility="Collapsed">
@@ -109,27 +109,28 @@ $Xaml = @"
     <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Margin="15,15,0,0" FontSize="14">
         <Bold>PS2EXE GUI</Bold>
         <LineBreak/>
-        a project by Tobias Meyer
+        a project by <Hyperlink Name="ui_dockpanel12">Tobias Meyer (Hope-IT-Works)</Hyperlink>
         <LineBreak/>
         <LineBreak/>
         Version 1.0.0.0
         <LineBreak/>
         <LineBreak/>
-        This Project uses the further developed version of PS2EXE by <Hyperlink Name="ui_dockpanel12">Markus Scholtes</Hyperlink> licensed under the Microsoft Public License (MC-PL).
+        This Project uses the further developed version of PS2EXE by <Hyperlink Name="ui_dockpanel13">Markus Scholtes</Hyperlink> licensed under the Microsoft Public License (MC-PL).
         <LineBreak/>
-        The GUI of PS2EXE-GUI was made with <Hyperlink Name="ui_dockpanel13">POSHGUI</Hyperlink> by <Hyperlink Name="ui_dockpanel14">Maciej Obuchowski</Hyperlink>.
+        The GUI of PS2EXE-GUI was made with <Hyperlink Name="ui_dockpanel14">POSHGUI</Hyperlink> by <Hyperlink Name="ui_dockpanel15">Maciej Obuchowski</Hyperlink>.
         <LineBreak/>
-        PS2EXE was initially developed by <Hyperlink Name="ui_dockpanel15">Ingo Karstein</Hyperlink>.
+        PS2EXE was initially developed by <Hyperlink Name="ui_dockpanel16">Ingo Karstein</Hyperlink>.
         <LineBreak/>
         <LineBreak/>
-        This project is licensed under the <Hyperlink Name="ui_dockpanel16">Apache License 2.0</Hyperlink>.
+        This project is licensed under the <Hyperlink Name="ui_dockpanel17">Apache License 2.0</Hyperlink>.
     </TextBlock>
-    <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="25" Margin="0,0,15,12" Content="← Back" Name="ui_dockpanel17"/>
+    <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="25" Margin="0,0,15,12" Content="← Back" Name="ui_dockpanel18"/>
 </Grid>
 </TabItem>
 <TabItem Header="Console" Visibility="Collapsed">
 <Grid>
-    <TextBox Margin="0,0,0,0" TextWrapping="Wrap" IsReadOnly="True" FontFamily="Consolas" Background="#012456" Foreground="#ffffff" Text="{Binding value_console}" Name="PS2EXE_Console" AcceptsReturn="True"/>
+    <TextBox Margin="0,0,0,50" Padding="10,10,10,10" TextWrapping="Wrap" IsReadOnly="True" FontFamily="Consolas" Background="#012456" Foreground="#ffffff" Text="{Binding value_console}" Name="PS2EXE_Console" AcceptsReturn="True"/>
+    <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="120" Height="25" Margin="0,0,12,12" Content="← Back" Name="ui_dockpanel19" IsEnabled="{Binding state_compiled}"/>
 </Grid>
 </TabItem>
 </TabControl>
@@ -284,7 +285,7 @@ function Add-PS2EXE_Argument ($Key,$Value) {
 
 function Invoke-PS2EXE {
     $global:PS2EXE_Arguments = New-Object -TypeName System.Collections.ArrayList
-    
+
     <#
         KEY/VALUE-PARAMETERS
     #>
@@ -335,7 +336,7 @@ function Invoke-PS2EXE {
             break
         }
     }
-    
+
     <#
         BOOLEAN|SWITCH-PARAMETERS
     #>
@@ -344,12 +345,12 @@ function Invoke-PS2EXE {
             Add-PS2EXE_Argument -Key $_
         }
     }
-    
+
     <#
         EXTRACTABLE
         - is not supported by MScholtes (https://github.com/MScholtes/TechNet-Gallery/issues/3)
         - this needs to be handled separately
-        
+
         EXAMPLE CONVERSION
         $PS2EXE_SOURCE = $PS2EXE_SOURCE -replace 's.StartsWith("-extdummt".Replace("dumm", "rac"), StringComparison.InvariantCultureIgnoreCase)','false'
     #>
@@ -358,29 +359,42 @@ function Invoke-PS2EXE {
     $State.value_console_command = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes([string]$PS2EXE_CMD))
     $State.value_console_root = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes((Get-Location).Path))
     Async {
-        $ErrorActionPreference = 'SilentlyContinue'
+        $State.value_console = [string]"Console - PS2EXE-GUI"
+        function Add-PS2EXEGUI_ConsoleLog($Line, [switch]$NoLineBreak){
+            if($NoLineBreak){
+                $State.value_console = [string]($State.value_console+$Line)
+            } else {
+                $State.value_console = [string]($State.value_console+$Line+$PS_LNB)
+            }
+        }
+
         $PS_LNB = [System.Environment]::NewLine
-        $PS_LINE = '----------------------------------------------------------------------------------------------'
+        $PS_LINE = '------------------------------------------------------------------------------------------'
+
         $PS2EXE_ROOT = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($State.value_console_root))
+        $PS2EXE_ROOT = $PS2EXE_ROOT
         if(Test-Path -Path $PS2EXE_ROOT){
             Set-Location -Path $PS2EXE_ROOT
-            $State.value_console += $PS_LNB+'ROOT: '+$PS2EXE_ROOT
+            Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+'ROOT: '+$PS2EXE_ROOT) -NoLineBreak
         }
-        
+
         <#
             PS2EXE CALL
         #>
         $PS2EXE_CMD = 'powershell '+[System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($State.value_console_command))
-        $State.value_console += $PS_LNB+$PS_LNB+'CALL: '+$PS2EXE_CMD
+        Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+'CALL: '+[string]$PS2EXE_CMD) -NoLineBreak
         $PS2EXE_CALL = cmd /U /C $PS2EXE_CMD
+        $PS2EXE_CALL = $PS2EXE_CALL -join $PS_LNB
+        Set-Content -Path "C:\Users\Tobias\GitHub\PS2EXE-GUI\src\Log.txt" -Value ($PS2EXE_CALL) -NoNewline
         if($LASTEXITCODE -ne 0){
-            $State.value_console += $PS_LNB+$PS_LNB+'ERROR: '+[string]$Error
+            Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+'ERROR: '+[string]$Error)
+            Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+'ERROR: '+[string](Get-Error))
         }
-        
+
         <#
             VERIFY THAT PS2EXE CREATED EXE FILE
         #>
-        if($State.ui_outputFile -eq ""){
+        if([string]$State.ui_outputFile -eq ""){
             $EXECUTABLE_PATH = @{
                 PATH = [System.IO.Path]::GetDirectoryName($State.ui_inputFile)
                 NAME = [System.IO.Path]::GetFileNameWithoutExtension($State.ui_inputFile)
@@ -392,18 +406,18 @@ function Invoke-PS2EXE {
             }
         }
         $EXECUTABLE_ASSUMPTION = $EXECUTABLE_PATH.PATH+'\'+$EXECUTABLE_PATH.NAME+'.exe'
+        Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+[string]$PS2EXE_CALL) -NoLineBreak
+        Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+'EXE: '+$EXECUTABLE_ASSUMPTION+$PS_LNB+$PS_LINE) -NoLineBreak
         if(Test-Path -Path $EXECUTABLE_ASSUMPTION){
             $PS2EXE_SUCCESS = $true
-            $State.value_console += $PS_LNB+$PS_LNB+$PS_LINE+$PS_LNB+$PS2EXE_CALL+$PS_LNB+$PS_LINE
-            $State.value_console += $PS_LNB+$PS_LNB+'STATUS: SUCCESS ✅ - Executable created.'
+            Add-PS2EXEGUI_ConsoleLog -Line ([string]'STATUS: SUCCESS ✅ - Executable exists.') -NoLineBreak
         } else {
             $PS2EXE_SUCCESS = $false
-            $State.value_console += $PS_LNB+$PS_LNB+$PS_LINE+$PS_LNB+$PS2EXE_CALL+$PS_LNB+$PS_LINE
-            $State.value_console += $PS_LNB+$PS_LNB+'STATUS: FAILURE ❌ - Executable could not be created.'
+            Add-PS2EXEGUI_ConsoleLog -Line ([string]'STATUS: FAILURE ❌ - Executable could not be created.') -NoLineBreak
         }
-        $State.value_console += $PS_LNB+$PS_LNB+'Waiting 5 Seconds...'
-        Start-Sleep -Seconds 5
-        $State.TabIndex = 0
+
+        Add-PS2EXEGUI_ConsoleLog -Line ($PS_LINE+$PS_LNB+'EXECUTION ENDED')
+        $State.state_compiled = $true
     }
 }
 #endregion 
@@ -429,48 +443,42 @@ $dom_button_inputFile.Add_Click({Invoke-UI_inputFile $this $_})
 $dom_button_outputFile.Add_Click({Invoke-UI_outputFile $this $_})
 $dom_button_iconFile.Add_Click({Invoke-UI_iconFile $this $_})
 $dom_button_compile.Add_Click({Invoke-PS2EXE $this $_})
-$ui_dockpanel12.Add_Click({Invoke-Hyperlink -URL "https://github.com/MScholtes" $this $_})
-$ui_dockpanel13.Add_Click({Invoke-Hyperlink -URL "https://poshgui.com" $this $_})
-$ui_dockpanel14.Add_Click({Invoke-Hyperlink -URL "https://twitter.com/poshgui" $this $_})
-$ui_dockpanel15.Add_Click({Invoke-Hyperlink -URL "https://github.com/ikarstein" $this $_})
-$ui_dockpanel16.Add_Click({Invoke-Hyperlink -URL "https://github.com/Hope-IT-Works/PS2EXE-GUI/blob/master/LICENSE" $this $_})
-$ui_dockpanel17.Add_Click({Switch-Page -Page 0 $this $_})
+$ui_dockpanel12.Add_Click({Invoke-Hyperlink -URL "https://github.com/Hope-IT-Works" $this $_})
+$ui_dockpanel13.Add_Click({Invoke-Hyperlink -URL "https://github.com/MScholtes" $this $_})
+$ui_dockpanel14.Add_Click({Invoke-Hyperlink -URL "https://poshgui.com" $this $_})
+$ui_dockpanel15.Add_Click({Invoke-Hyperlink -URL "https://twitter.com/poshgui" $this $_})
+$ui_dockpanel16.Add_Click({Invoke-Hyperlink -URL "https://github.com/ikarstein" $this $_})
+$ui_dockpanel17.Add_Click({Invoke-Hyperlink -URL "https://github.com/Hope-IT-Works/PS2EXE-GUI/blob/master/LICENSE" $this $_})
+$ui_dockpanel18.Add_Click({Switch-Page -Page 0 $this $_})
+$ui_dockpanel19.Add_Click({Switch-Page -Page 0 $this $_})
 
 $State = [PSCustomObject]@{}
 
-
-Function Set-Binding {
+function Set-Binding {
     Param($Target,$Property,$Index,$Name,$UpdateSourceTrigger)
- 
+
     $Binding = New-Object System.Windows.Data.Binding
     $Binding.Path = "["+$Index+"]"
     $Binding.Mode = [System.Windows.Data.BindingMode]::TwoWay
     if($UpdateSourceTrigger -ne $null){$Binding.UpdateSourceTrigger = $UpdateSourceTrigger}
 
-
     [void]$Target.SetBinding($Property,$Binding)
 }
 
 function FillDataContext($props){
-
-    For ($i=0; $i -lt $props.Length; $i++) {
-   
-   $prop = $props[$i]
-   $DataContext.Add($DataObject."$prop")
-   
-    $getter = [scriptblock]::Create("Write-Output `$DataContext['$i'] -noenumerate")
-    $setter = [scriptblock]::Create("param(`$val) return `$DataContext['$i']=`$val")
-    $State | Add-Member -Name $prop -MemberType ScriptProperty -Value  $getter -SecondValue $setter
-               
-       }
-   }
-
-
+    for ($i=0; $i -lt $props.Length; $i++) {
+        $prop = $props[$i]
+        $DataContext.Add($DataObject."$prop")
+        $getter = [scriptblock]::Create("Write-Output `$DataContext['$i'] -noenumerate")
+        $setter = [scriptblock]::Create("param(`$val) return `$DataContext['$i']=`$val")
+        $State | Add-Member -Name $prop -MemberType ScriptProperty -Value  $getter -SecondValue $setter
+    }
+}
 
 $DataObject =  ConvertFrom-Json @"
 
 {
-	"TabIndex" : 0,
+	"TabIndex" : 2,
 	"ui_inputFile" : "",
 	"ui_outputFile" : "",
 	"ui_iconFile" : "",
@@ -530,6 +538,7 @@ $DataObject =  ConvertFrom-Json @"
 	"tooltip_longPaths" : "enable long paths ( > 260 characters) if enabled on OS (works only with Windows 10)",
 	"tooltip_extractable" : "enables extract-Function (\u003Capplication.exe\u003e -extract:\u003CFILENAME\u003e)",
 	"state_compile": false,
+	"state_compiled": false,
 	"state_inputFile": "#FFABADB3",
 	"value_runtime":"[runtime40] .NET Framework 4.x for PowerShell 3.0",
 	"value_instructionSet":"x86 - 32-Bit Application",
@@ -542,12 +551,12 @@ $DataObject =  ConvertFrom-Json @"
 "@
 
 $DataContext = New-Object System.Collections.ObjectModel.ObservableCollection[Object]
-FillDataContext @("TabIndex","ui_inputFile","ui_outputFile","ui_iconFile","ui_title","ui_description","ui_company","ui_product","ui_copyright","ui_trademark","ui_version","ui_runtime","ui_instructionSet","ui_threadApartment","ui_prepareDebug","ui_noConsole","ui_UNICODEEncoding","ui_credentialGUI","ui_configFile","ui_noOutput","ui_noError","ui_noVisualStyles","ui_exitOnCancel","ui_DPIAware","ui_winFormsDPIAware","ui_requireAdmin","ui_supportOS","ui_virtualize","ui_longPaths","ui_extractable","tooltip_inputFile","tooltip_outputFile","tooltip_iconFile","tooltip_title","tooltip_description","tooltip_company","tooltip_product","tooltip_copyright","tooltip_trademark","tooltip_version","tooltip_runtime","tooltip_instructionSet","tooltip_threadApartment","tooltip_prepareDebug","tooltip_noConsole","tooltip_UNICODEEncoding","tooltip_credentialGUI","tooltip_configFile","tooltip_noOutput","tooltip_noError","tooltip_noVisualStyles","tooltip_exitOnCancel","tooltip_DPIAware","tooltip_winFormsDPIAware","tooltip_requireAdmin","tooltip_supportOS","tooltip_virtualize","tooltip_longPaths","tooltip_extractable","state_compile","state_inputFile","value_runtime","value_instructionSet","value_threadApartment","value_console","value_console_command","value_console_root") 
+FillDataContext @("TabIndex","ui_inputFile","ui_outputFile","ui_iconFile","ui_title","ui_description","ui_company","ui_product","ui_copyright","ui_trademark","ui_version","ui_runtime","ui_instructionSet","ui_threadApartment","ui_prepareDebug","ui_noConsole","ui_UNICODEEncoding","ui_credentialGUI","ui_configFile","ui_noOutput","ui_noError","ui_noVisualStyles","ui_exitOnCancel","ui_DPIAware","ui_winFormsDPIAware","ui_requireAdmin","ui_supportOS","ui_virtualize","ui_longPaths","ui_extractable","tooltip_inputFile","tooltip_outputFile","tooltip_iconFile","tooltip_title","tooltip_description","tooltip_company","tooltip_product","tooltip_copyright","tooltip_trademark","tooltip_version","tooltip_runtime","tooltip_instructionSet","tooltip_threadApartment","tooltip_prepareDebug","tooltip_noConsole","tooltip_UNICODEEncoding","tooltip_credentialGUI","tooltip_configFile","tooltip_noOutput","tooltip_noError","tooltip_noVisualStyles","tooltip_exitOnCancel","tooltip_DPIAware","tooltip_winFormsDPIAware","tooltip_requireAdmin","tooltip_supportOS","tooltip_virtualize","tooltip_longPaths","tooltip_extractable","state_compile","state_compiled","state_inputFile","value_runtime","value_instructionSet","value_threadApartment","value_console","value_console_command","value_console_root") 
 
 $Window.DataContext = $DataContext
 Set-Binding -Target $ui_dockpanel11 -Property $([System.Windows.Controls.TabControl]::SelectedIndexProperty) -Index 0 -Name "TabIndex"  
 Set-Binding -Target $dom_textbox_inputFile -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 30 -Name "tooltip_inputFile"  
-Set-Binding -Target $dom_textbox_inputFile -Property $([System.Windows.Controls.TextBox]::BorderBrushProperty) -Index 60 -Name "state_inputFile"  
+Set-Binding -Target $dom_textbox_inputFile -Property $([System.Windows.Controls.TextBox]::BorderBrushProperty) -Index 61 -Name "state_inputFile"  
 Set-Binding -Target $dom_textbox_inputFile -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 1 -Name "ui_inputFile"  
 Set-Binding -Target $dom_textbox_outputFile -Property $([System.Windows.Controls.TextBox]::ToolTipProperty) -Index 31 -Name "tooltip_outputFile"  
 Set-Binding -Target $dom_textbox_outputFile -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 2 -Name "ui_outputFile"  
@@ -569,13 +578,13 @@ Set-Binding -Target $dom_textbox_version -Property $([System.Windows.Controls.Te
 Set-Binding -Target $dom_textbox_version -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 10 -Name "ui_version"  
 Set-Binding -Target $dom_combobox_runtime -Property $([System.Windows.Controls.ComboBox]::ToolTipProperty) -Index 40 -Name "tooltip_runtime"  
 Set-Binding -Target $dom_combobox_runtime -Property $([System.Windows.Controls.ComboBox]::ItemsSourceProperty) -Index 11 -Name "ui_runtime"  
-Set-Binding -Target $dom_combobox_runtime -Property $([System.Windows.Controls.ComboBox]::SelectedValueProperty) -Index 61 -Name "value_runtime"  
+Set-Binding -Target $dom_combobox_runtime -Property $([System.Windows.Controls.ComboBox]::SelectedValueProperty) -Index 62 -Name "value_runtime"  
 Set-Binding -Target $dom_combobox_instructionSet -Property $([System.Windows.Controls.ComboBox]::ToolTipProperty) -Index 41 -Name "tooltip_instructionSet"  
 Set-Binding -Target $dom_combobox_instructionSet -Property $([System.Windows.Controls.ComboBox]::ItemsSourceProperty) -Index 12 -Name "ui_instructionSet"  
-Set-Binding -Target $dom_combobox_instructionSet -Property $([System.Windows.Controls.ComboBox]::SelectedValueProperty) -Index 62 -Name "value_instructionSet"  
+Set-Binding -Target $dom_combobox_instructionSet -Property $([System.Windows.Controls.ComboBox]::SelectedValueProperty) -Index 63 -Name "value_instructionSet"  
 Set-Binding -Target $dom_combobox_threadApartment -Property $([System.Windows.Controls.ComboBox]::ToolTipProperty) -Index 42 -Name "tooltip_threadApartment"  
 Set-Binding -Target $dom_combobox_threadApartment -Property $([System.Windows.Controls.ComboBox]::ItemsSourceProperty) -Index 13 -Name "ui_threadApartment"  
-Set-Binding -Target $dom_combobox_threadApartment -Property $([System.Windows.Controls.ComboBox]::SelectedValueProperty) -Index 63 -Name "value_threadApartment"  
+Set-Binding -Target $dom_combobox_threadApartment -Property $([System.Windows.Controls.ComboBox]::SelectedValueProperty) -Index 64 -Name "value_threadApartment"  
 Set-Binding -Target $dom_checkbox_prepareDebug -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 43 -Name "tooltip_prepareDebug"  
 Set-Binding -Target $dom_checkbox_prepareDebug -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 14 -Name "ui_prepareDebug"  
 Set-Binding -Target $dom_checkbox_noConsole -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 44 -Name "tooltip_noConsole"  
@@ -609,27 +618,25 @@ Set-Binding -Target $dom_checkbox_longPaths -Property $([System.Windows.Controls
 Set-Binding -Target $dom_checkbox_extractable -Property $([System.Windows.Controls.CheckBox]::ToolTipProperty) -Index 58 -Name "tooltip_extractable"  
 Set-Binding -Target $dom_checkbox_extractable -Property $([System.Windows.Controls.CheckBox]::IsCheckedProperty) -Index 29 -Name "ui_extractable"  
 Set-Binding -Target $dom_button_compile -Property $([System.Windows.Controls.Button]::IsEnabledProperty) -Index 59 -Name "state_compile"  
-Set-Binding -Target $PS2EXE_Console -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 64 -Name "value_console"  
-
-
-
-
+Set-Binding -Target $PS2EXE_Console -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 65 -Name "value_console"  
+Set-Binding -Target $ui_dockpanel19 -Property $([System.Windows.Controls.Button]::IsEnabledProperty) -Index 60 -Name "state_compiled"  
 $Global:SyncHash = [HashTable]::Synchronized(@{})
 $SyncHash.Window = $Window
 $Jobs = [System.Collections.ArrayList]::Synchronized([System.Collections.ArrayList]::new())
 $initialSessionState = [initialsessionstate]::CreateDefault()
 
-Function Start-RunspaceTask
-{
+function Start-RunspaceTask {
     [CmdletBinding()]
-    Param([Parameter(Mandatory=$True,Position=0)][ScriptBlock]$ScriptBlock,
-          [Parameter(Mandatory=$True,Position=1)][PSObject[]]$ProxyVars)
-            
+    Param(
+        [Parameter(Mandatory = $True, Position = 0)][ScriptBlock]$ScriptBlock,
+        [Parameter(Mandatory = $True, Position = 1)][PSObject[]]$ProxyVars
+    )
+
     $Runspace = [RunspaceFactory]::CreateRunspace($InitialSessionState)
     $Runspace.ApartmentState = 'STA'
-    $Runspace.ThreadOptions  = 'ReuseThread'
+    $Runspace.ThreadOptions = 'ReuseThread'
     $Runspace.Open()
-    ForEach($Var in $ProxyVars){$Runspace.SessionStateProxy.SetVariable($Var.Name, $Var.Variable)}
+    ForEach ($Var in $ProxyVars) { $Runspace.SessionStateProxy.SetVariable($Var.Name, $Var.Variable) }
     $Thread = [PowerShell]::Create('NewRunspace')
     $Thread.AddScript($ScriptBlock) | Out-Null
     $Thread.Runspace = $Runspace
@@ -637,28 +644,23 @@ Function Start-RunspaceTask
 }
 
 $JobCleanupScript = {
-    Do
-    {    
-        ForEach($Job in $Jobs)
-        {            
-            If($Job.Runspace.IsCompleted)
-            {
+    do {
+        ForEach ($Job in $Jobs) {
+            If ($Job.Runspace.IsCompleted) {
                 [Void]$Job.Powershell.EndInvoke($Job.Runspace)
                 $Job.PowerShell.Runspace.Close()
                 $Job.PowerShell.Runspace.Dispose()
                 $Job.Powershell.Dispose()
-                
                 $Jobs.Remove($Job)
             }
         }
-
         Start-Sleep -Seconds 1
     }
-    While ($SyncHash.CleanupJobs)
+    while ($SyncHash.CleanupJobs)
 }
 
-Get-ChildItem Function: | Where-Object {$_.name -notlike "*:*"} |  select name -ExpandProperty name |
-ForEach-Object {       
+Get-ChildItem Function: | Where-Object { $_.name -notlike "*:*" } |  Select-Object name -ExpandProperty name |
+ForEach-Object {
     $Definition = Get-Content "function:$_" -ErrorAction Stop
     $SessionStateFunction = New-Object System.Management.Automation.Runspaces.SessionStateFunctionEntry -ArgumentList "$_", $Definition
     $InitialSessionState.Commands.Add($SessionStateFunction)
@@ -671,12 +673,8 @@ $Window.Add_Closed({
 })
 
 $SyncHash.CleanupJobs = $True
-function Async($scriptBlock){ Start-RunspaceTask $scriptBlock @([PSObject]@{ Name='DataContext' ; Variable=$DataContext},[PSObject]@{Name="State"; Variable=$State},[PSObject]@{Name = "SyncHash";Variable = $SyncHash})}
+function Async($scriptBlock) { Start-RunspaceTask $scriptBlock @([PSObject]@{ Name = 'DataContext' ; Variable = $DataContext }, [PSObject]@{Name = "State"; Variable = $State }, [PSObject]@{Name = "SyncHash"; Variable = $SyncHash }) }
 
-Start-RunspaceTask $JobCleanupScript @([PSObject]@{ Name='Jobs' ; Variable=$Jobs },[PSObject]@{Name = "SyncHash";Variable = $SyncHash})
-
-
-
-$Window.ShowDialog()
+Start-RunspaceTask $JobCleanupScript @([PSObject]@{ Name = 'Jobs' ; Variable = $Jobs }, [PSObject]@{Name = "SyncHash"; Variable = $SyncHash})$Window.ShowDialog()
 
 

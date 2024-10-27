@@ -26,8 +26,6 @@ As you may have noticed, the project has not been updated for a while. I will ge
 | release second build             | ⏳ | *not specified* |
 | integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) | 🔜 | *not specified* |
 | release third build              | 🔜 | *not specified* |
-| integrate [SignTool](https://docs.microsoft.com/de-de/dotnet/framework/tools/signtool-exe) | 🔜 | *not specified* |
-| release fourth build             | 🔜 | *not specified* |
 
 ## Parameter Support Comparison
 
