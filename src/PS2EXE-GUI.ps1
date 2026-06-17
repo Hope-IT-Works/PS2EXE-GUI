@@ -483,7 +483,8 @@ function Invoke-PS2EXEGUI_OpenConfig ($FilePath) {
         if($null -ne $Config.$key){
             $defaultVal = $global:PS2EXE_GUI_DEFAULTS[$key]
             if($defaultVal -is [bool]){
-                $State.$key = [bool]$Config.$key
+                try { $State.$key = [System.Convert]::ToBoolean($Config.$key) }
+                catch { $State.$key = $defaultVal }
             } else {
                 $State.$key = [string]$Config.$key
             }
@@ -510,9 +511,18 @@ function Invoke-UI_OpenConfig {
     if($FilePath -ne ""){ Invoke-PS2EXEGUI_OpenConfig -FilePath $FilePath }
 }
 
+function Install-PS2EXEUpdate ($TempFile, $Destination, $SuccessMessage) {
+    Copy-Item -Path $TempFile -Destination $Destination -Force
+    if(Test-Path -Path $Destination){
+        [System.Windows.MessageBox]::Show($SuccessMessage, "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
+    } else {
+        [System.Windows.MessageBox]::Show("The file could not be saved. Please check write permissions.", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Warning)
+    }
+}
+
 function Invoke-PS2EXEGUI_CheckPS2EXEUpdate {
     if($PS2EXE_GUI_Verbose){ Write-Host "[Invoke-PS2EXEGUI_CheckPS2EXEUpdate]" }
-    $TempFile = [System.IO.Path]::GetTempFileName()
+    $TempFile = (New-TemporaryFile).FullName
     try {
         Invoke-WebRequest -Uri $global:PS2EXE_PS1_RAW_URL -OutFile $TempFile -UseBasicParsing
         $LocalPS2EXE = Join-Path $PSScriptRoot "ps2exe.ps1"
@@ -527,12 +537,7 @@ function Invoke-PS2EXEGUI_CheckPS2EXEUpdate {
                     [System.Windows.MessageBoxImage]::Question
                 )
                 if($result -eq [System.Windows.MessageBoxResult]::Yes){
-                    Copy-Item -Path $TempFile -Destination $LocalPS2EXE -Force
-                    if(Test-Path -Path $LocalPS2EXE){
-                        [System.Windows.MessageBox]::Show("ps2exe.ps1 has been updated successfully!", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
-                    } else {
-                        [System.Windows.MessageBox]::Show("The file could not be saved. Please check write permissions.", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Warning)
-                    }
+                    Install-PS2EXEUpdate -TempFile $TempFile -Destination $LocalPS2EXE -SuccessMessage "ps2exe.ps1 has been updated successfully!"
                 }
             } else {
                 [System.Windows.MessageBox]::Show("ps2exe.ps1 is already up to date.", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
@@ -545,12 +550,7 @@ function Invoke-PS2EXEGUI_CheckPS2EXEUpdate {
                 [System.Windows.MessageBoxImage]::Question
             )
             if($result -eq [System.Windows.MessageBoxResult]::Yes){
-                Copy-Item -Path $TempFile -Destination $LocalPS2EXE -Force
-                if(Test-Path -Path $LocalPS2EXE){
-                    [System.Windows.MessageBox]::Show("ps2exe.ps1 has been downloaded successfully!", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
-                } else {
-                    [System.Windows.MessageBox]::Show("The file could not be saved. Please check write permissions.", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Warning)
-                }
+                Install-PS2EXEUpdate -TempFile $TempFile -Destination $LocalPS2EXE -SuccessMessage "ps2exe.ps1 has been downloaded successfully!"
             }
         }
     } catch {
