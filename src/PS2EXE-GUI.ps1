@@ -145,6 +145,15 @@ $Xaml = @"
 
 #region pre_code
 $PS2EXE_GUI_Verbose = $true
+$global:PS2EXE_GUI_ConfigPath = $null
+$global:PS2EXE_GUI_CONFIG_KEYS = @(
+    'ui_inputFile','ui_outputFile','ui_iconFile',
+    'ui_title','ui_description','ui_company','ui_product','ui_copyright','ui_trademark','ui_version',
+    'value_runtime','value_instructionSet','value_threadApartment',
+    'ui_prepareDebug','ui_noConsole','ui_UNICODEEncoding','ui_credentialGUI','ui_configFile',
+    'ui_noOutput','ui_noError','ui_noVisualStyles','ui_exitOnCancel',
+    'ui_DPIAware','ui_winFormsDPIAware','ui_requireAdmin','ui_supportOS','ui_virtualize','ui_longPaths'
+)
 
 Add-Type -AssemblyName System.Windows.Forms
 
@@ -188,11 +197,11 @@ $Xaml = $Xaml.Replace('<!--d9102811-1fab-4eca-a3f6-f5b6db64722b-->',@'
 <DockPanel Name="ui_dockpanel00">
     <Menu DockPanel.Dock="Top" BorderBrush="DarkGray" BorderThickness="0,0,0,1">
         <MenuItem Header="_File">
-            <MenuItem Header="_New" Name="ui_dockpanel01" IsEnabled="false"/>
-            <MenuItem Header="_Open" Name="ui_dockpanel02" IsEnabled="false"/>
+            <MenuItem Header="_New" Name="ui_dockpanel01"/>
+            <MenuItem Header="_Open" Name="ui_dockpanel02"/>
             <Separator />
-            <MenuItem Header="_Save" Name="ui_dockpanel03" IsEnabled="false"/>
-            <MenuItem Header="_Save As..." Name="ui_dockpanel04" IsEnabled="false"/>
+            <MenuItem Header="_Save" Name="ui_dockpanel03"/>
+            <MenuItem Header="_Save As..." Name="ui_dockpanel04"/>
             <Separator />
             <MenuItem Header="_Exit" Name="ui_dockpanel05"/>
         </MenuItem>
@@ -200,8 +209,8 @@ $Xaml = $Xaml.Replace('<!--d9102811-1fab-4eca-a3f6-f5b6db64722b-->',@'
             <MenuItem Header="_View Help" Name="ui_dockpanel06"/>
             <MenuItem Header="_Send Feedback" Name="ui_dockpanel07"/>
             <Separator />
-            <MenuItem Header="_Check for PS2EXE-GUI Update" Name="ui_dockpanel08" IsEnabled="false"/>
-            <MenuItem Header="_Check for ps2exe.ps1 Update" Name="ui_dockpanel09" IsEnabled="false"/>
+            <MenuItem Header="_Check for PS2EXE-GUI Update" Name="ui_dockpanel08"/>
+            <MenuItem Header="_Check for ps2exe.ps1 Update" Name="ui_dockpanel09"/>
             <Separator />
             <MenuItem Header="_About P2EXE-GUI" Name="ui_dockpanel10"/>
         </MenuItem>
@@ -215,15 +224,15 @@ $Xaml = $Xaml.Replace('<!--039aaa3d-1014-4b1d-b7ae-6aedd03aa21b-->','</DockPanel
     - injected WPF element events are handled here
 #>
 function Invoke-WindowLoaded {
-    $ui_dockpanel01.Add_Click({Invoke-Dummy $this $_}.Ast.GetScriptBlock())
-    $ui_dockpanel02.Add_Click({Invoke-Dummy $this $_}.Ast.GetScriptBlock())
-    $ui_dockpanel03.Add_Click({Invoke-Dummy $this $_}.Ast.GetScriptBlock())
-    $ui_dockpanel04.Add_Click({Invoke-Dummy $this $_}.Ast.GetScriptBlock())
+    $ui_dockpanel01.Add_Click({Invoke-PS2EXEGUI_NewConfig $this $_}.Ast.GetScriptBlock())
+    $ui_dockpanel02.Add_Click({Invoke-UI_OpenConfig $this $_}.Ast.GetScriptBlock())
+    $ui_dockpanel03.Add_Click({Invoke-UI_SaveConfig $this $_}.Ast.GetScriptBlock())
+    $ui_dockpanel04.Add_Click({Invoke-UI_SaveAsConfig $this $_}.Ast.GetScriptBlock())
     $ui_dockpanel05.Add_Click({Stop-PS2EXEGUI $this $_}.Ast.GetScriptBlock())
     $ui_dockpanel06.Add_Click({Invoke-Hyperlink -URL "https://github.com/Hope-IT-Works/PS2EXE-GUI/wiki" $this $_}.Ast.GetScriptBlock())
     $ui_dockpanel07.Add_Click({Invoke-Hyperlink -URL "https://github.com/Hope-IT-Works/PS2EXE-GUI/issues" $this $_}.Ast.GetScriptBlock())
     $ui_dockpanel08.Add_Click({Invoke-Hyperlink -URL "https://github.com/Hope-IT-Works/PS2EXE-GUI/releases" $this $_}.Ast.GetScriptBlock())
-    $ui_dockpanel09.Add_Click({Invoke-Hyperlink -URL "https://github.com/MScholtes/Win-PS2EXE/commits/master/ps2exe.ps1" $this $_}.Ast.GetScriptBlock())
+    $ui_dockpanel09.Add_Click({Invoke-PS2EXEGUI_CheckPS2EXEUpdate $this $_}.Ast.GetScriptBlock())
     $ui_dockpanel10.Add_Click({Switch-Page -Page 1 $this $_}.Ast.GetScriptBlock())
 }
 #endregion 
@@ -419,6 +428,98 @@ function Invoke-PS2EXE {
         $State.state_compiled = $true
     }
 }
+
+function Invoke-PS2EXEGUI_NewConfig {
+    if($PS2EXE_GUI_Verbose){ Write-Host "[Invoke-PS2EXEGUI_NewConfig]" }
+    @('ui_inputFile','ui_outputFile','ui_iconFile','ui_title','ui_description','ui_company','ui_product','ui_copyright','ui_trademark','ui_version') | ForEach-Object {
+        $State.$_ = ""
+    }
+    $State.value_runtime = "[runtime40] .NET Framework 4.x for PowerShell 3.0"
+    $State.value_instructionSet = "x86 - 32-Bit Application"
+    $State.value_threadApartment = "STA - Single Thread Apartment"
+    @('ui_prepareDebug','ui_noConsole','ui_credentialGUI','ui_configFile','ui_noOutput','ui_noError','ui_noVisualStyles','ui_exitOnCancel','ui_DPIAware','ui_winFormsDPIAware','ui_requireAdmin','ui_virtualize','ui_longPaths') | ForEach-Object {
+        $State.$_ = $false
+    }
+    $State.ui_UNICODEEncoding = $true
+    $State.ui_supportOS = $true
+    $global:PS2EXE_GUI_ConfigPath = $null
+}
+
+function Invoke-PS2EXEGUI_SaveConfig ($FilePath) {
+    if($PS2EXE_GUI_Verbose){ Write-Host ("[Invoke-PS2EXEGUI_SaveConfig] FilePath: "+$FilePath) }
+    $Config = [ordered]@{}
+    $global:PS2EXE_GUI_CONFIG_KEYS | ForEach-Object { $Config[$_] = $State.$_ }
+    $Config | ConvertTo-Json | Set-Content -Path $FilePath -Encoding UTF8
+    $global:PS2EXE_GUI_ConfigPath = $FilePath
+}
+
+function Invoke-PS2EXEGUI_OpenConfig ($FilePath) {
+    if($PS2EXE_GUI_Verbose){ Write-Host ("[Invoke-PS2EXEGUI_OpenConfig] FilePath: "+$FilePath) }
+    $Config = Get-Content -Path $FilePath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $global:PS2EXE_GUI_CONFIG_KEYS | ForEach-Object {
+        if($null -ne $Config.$_){ $State.$_ = $Config.$_ }
+    }
+    $global:PS2EXE_GUI_ConfigPath = $FilePath
+}
+
+function Invoke-UI_SaveConfig {
+    if($null -ne $global:PS2EXE_GUI_ConfigPath){
+        Invoke-PS2EXEGUI_SaveConfig -FilePath $global:PS2EXE_GUI_ConfigPath
+    } else {
+        Invoke-UI_SaveAsConfig
+    }
+}
+
+function Invoke-UI_SaveAsConfig {
+    $FilePath = Invoke-PS2EXEGUI_SaveFileDialog -Filter "PS2EXE-GUI Config (*.json)|*.json"
+    if($FilePath -ne ""){ Invoke-PS2EXEGUI_SaveConfig -FilePath $FilePath }
+}
+
+function Invoke-UI_OpenConfig {
+    $FilePath = Invoke-PS2EXEGUI_OpenFileDialog -Filter "PS2EXE-GUI Config (*.json)|*.json"
+    if($FilePath -ne ""){ Invoke-PS2EXEGUI_OpenConfig -FilePath $FilePath }
+}
+
+function Invoke-PS2EXEGUI_CheckPS2EXEUpdate {
+    if($PS2EXE_GUI_Verbose){ Write-Host "[Invoke-PS2EXEGUI_CheckPS2EXEUpdate]" }
+    try {
+        $PS2EXE_URL = "https://raw.githubusercontent.com/MScholtes/Win-PS2EXE/master/ps2exe.ps1"
+        $PS2EXE_API_URL = "https://api.github.com/repos/MScholtes/Win-PS2EXE/commits?path=ps2exe.ps1&page=1&per_page=1"
+        $LatestCommit = (Invoke-RestMethod -Uri $PS2EXE_API_URL)[0]
+        $LatestDate = [DateTime]$LatestCommit.commit.committer.date
+        $LocalPS2EXE = Join-Path (Get-Location) "ps2exe.ps1"
+        if(Test-Path -Path $LocalPS2EXE){
+            $LocalDate = (Get-Item $LocalPS2EXE).LastWriteTime
+            if($LocalDate -lt $LatestDate){
+                $result = [System.Windows.MessageBox]::Show(
+                    "A newer version of ps2exe.ps1 is available ("+$LatestDate.ToString("yyyy-MM-dd")+").`nDownload now?",
+                    "ps2exe.ps1 Update",
+                    [System.Windows.MessageBoxButton]::YesNo,
+                    [System.Windows.MessageBoxImage]::Question
+                )
+                if($result -eq [System.Windows.MessageBoxResult]::Yes){
+                    Invoke-WebRequest -Uri $PS2EXE_URL -OutFile $LocalPS2EXE -UseBasicParsing
+                    [System.Windows.MessageBox]::Show("ps2exe.ps1 has been updated successfully!", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
+                }
+            } else {
+                [System.Windows.MessageBox]::Show("ps2exe.ps1 is already up to date.", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
+            }
+        } else {
+            $result = [System.Windows.MessageBox]::Show(
+                "ps2exe.ps1 was not found in the current directory.`nDownload it now?",
+                "ps2exe.ps1 Update",
+                [System.Windows.MessageBoxButton]::YesNo,
+                [System.Windows.MessageBoxImage]::Question
+            )
+            if($result -eq [System.Windows.MessageBoxResult]::Yes){
+                Invoke-WebRequest -Uri $PS2EXE_URL -OutFile $LocalPS2EXE -UseBasicParsing
+                [System.Windows.MessageBox]::Show("ps2exe.ps1 has been downloaded successfully!", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
+            }
+        }
+    } catch {
+        [System.Windows.MessageBox]::Show("Failed to check for updates:`n"+$_.Exception.Message, "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Error)
+    }
+}
 #endregion 
 #region post_code
 $UpdateSourceTrigger = 'PropertyChanged'
@@ -477,7 +578,7 @@ function FillDataContext($props){
 $DataObject =  ConvertFrom-Json @"
 
 {
-	"TabIndex" : 2,
+	"TabIndex" : 0,
 	"ui_inputFile" : "",
 	"ui_outputFile" : "",
 	"ui_iconFile" : "",

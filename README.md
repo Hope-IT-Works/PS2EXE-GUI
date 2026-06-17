@@ -20,9 +20,9 @@ As you may have noticed, the project has not been updated for a while. I will ge
 | add about page                   | ✅ | ✅ |
 | mark required ps2exe fields      | ✅ | ✅ |
 | get ps2exe call done             | ✅ | ✅ |
-| add ps2exe-script update         | ⏳ | *not specified* |
+| add ps2exe-script update         | ✅ | ✅ |
 | release first build              | ⏳ | *not specified* |
-| add save files                   | ⏳ | *not specified* |
+| add save files                   | ✅ | ✅ |
 | release second build             | ⏳ | *not specified* |
 | integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) | 🔜 | *not specified* |
 | release third build              | 🔜 | *not specified* |
