@@ -146,6 +146,7 @@ $Xaml = @"
 #region pre_code
 $PS2EXE_GUI_Verbose = $true
 $global:PS2EXE_GUI_ConfigPath = $null
+$global:PS2EXE_GUI_CONFIG_FILTER = "PS2EXE-GUI Config (*.json)|*.json"
 $global:PS2EXE_GUI_CONFIG_KEYS = @(
     'ui_inputFile','ui_outputFile','ui_iconFile',
     'ui_title','ui_description','ui_company','ui_product','ui_copyright','ui_trademark','ui_version',
@@ -154,6 +155,36 @@ $global:PS2EXE_GUI_CONFIG_KEYS = @(
     'ui_noOutput','ui_noError','ui_noVisualStyles','ui_exitOnCancel',
     'ui_DPIAware','ui_winFormsDPIAware','ui_requireAdmin','ui_supportOS','ui_virtualize','ui_longPaths'
 )
+$global:PS2EXE_GUI_DEFAULTS = [ordered]@{
+    'ui_inputFile'         = ''
+    'ui_outputFile'        = ''
+    'ui_iconFile'          = ''
+    'ui_title'             = ''
+    'ui_description'       = ''
+    'ui_company'           = ''
+    'ui_product'           = ''
+    'ui_copyright'         = ''
+    'ui_trademark'         = ''
+    'ui_version'           = ''
+    'value_runtime'        = '[runtime40] .NET Framework 4.x for PowerShell 3.0'
+    'value_instructionSet' = 'x86 - 32-Bit Application'
+    'value_threadApartment'= 'STA - Single Thread Apartment'
+    'ui_prepareDebug'      = $false
+    'ui_noConsole'         = $false
+    'ui_UNICODEEncoding'   = $true
+    'ui_credentialGUI'     = $false
+    'ui_configFile'        = $false
+    'ui_noOutput'          = $false
+    'ui_noError'           = $false
+    'ui_noVisualStyles'    = $false
+    'ui_exitOnCancel'      = $false
+    'ui_DPIAware'          = $false
+    'ui_winFormsDPIAware'  = $false
+    'ui_requireAdmin'      = $false
+    'ui_supportOS'         = $true
+    'ui_virtualize'        = $false
+    'ui_longPaths'         = $false
+}
 
 Add-Type -AssemblyName System.Windows.Forms
 
@@ -212,7 +243,7 @@ $Xaml = $Xaml.Replace('<!--d9102811-1fab-4eca-a3f6-f5b6db64722b-->',@'
             <MenuItem Header="_Check for PS2EXE-GUI Update" Name="ui_dockpanel08"/>
             <MenuItem Header="_Check for ps2exe.ps1 Update" Name="ui_dockpanel09"/>
             <Separator />
-            <MenuItem Header="_About P2EXE-GUI" Name="ui_dockpanel10"/>
+            <MenuItem Header="_About PS2EXE-GUI" Name="ui_dockpanel10"/>
         </MenuItem>
     </Menu>
 '@)
@@ -431,17 +462,7 @@ function Invoke-PS2EXE {
 
 function Invoke-PS2EXEGUI_NewConfig {
     if($PS2EXE_GUI_Verbose){ Write-Host "[Invoke-PS2EXEGUI_NewConfig]" }
-    @('ui_inputFile','ui_outputFile','ui_iconFile','ui_title','ui_description','ui_company','ui_product','ui_copyright','ui_trademark','ui_version') | ForEach-Object {
-        $State.$_ = ""
-    }
-    $State.value_runtime = "[runtime40] .NET Framework 4.x for PowerShell 3.0"
-    $State.value_instructionSet = "x86 - 32-Bit Application"
-    $State.value_threadApartment = "STA - Single Thread Apartment"
-    @('ui_prepareDebug','ui_noConsole','ui_credentialGUI','ui_configFile','ui_noOutput','ui_noError','ui_noVisualStyles','ui_exitOnCancel','ui_DPIAware','ui_winFormsDPIAware','ui_requireAdmin','ui_virtualize','ui_longPaths') | ForEach-Object {
-        $State.$_ = $false
-    }
-    $State.ui_UNICODEEncoding = $true
-    $State.ui_supportOS = $true
+    $global:PS2EXE_GUI_DEFAULTS.GetEnumerator() | ForEach-Object { $State.($_.Key) = $_.Value }
     $global:PS2EXE_GUI_ConfigPath = $null
 }
 
@@ -471,12 +492,12 @@ function Invoke-UI_SaveConfig {
 }
 
 function Invoke-UI_SaveAsConfig {
-    $FilePath = Invoke-PS2EXEGUI_SaveFileDialog -Filter "PS2EXE-GUI Config (*.json)|*.json"
+    $FilePath = Invoke-PS2EXEGUI_SaveFileDialog -Filter $global:PS2EXE_GUI_CONFIG_FILTER
     if($FilePath -ne ""){ Invoke-PS2EXEGUI_SaveConfig -FilePath $FilePath }
 }
 
 function Invoke-UI_OpenConfig {
-    $FilePath = Invoke-PS2EXEGUI_OpenFileDialog -Filter "PS2EXE-GUI Config (*.json)|*.json"
+    $FilePath = Invoke-PS2EXEGUI_OpenFileDialog -Filter $global:PS2EXE_GUI_CONFIG_FILTER
     if($FilePath -ne ""){ Invoke-PS2EXEGUI_OpenConfig -FilePath $FilePath }
 }
 
@@ -487,7 +508,7 @@ function Invoke-PS2EXEGUI_CheckPS2EXEUpdate {
         $PS2EXE_API_URL = "https://api.github.com/repos/MScholtes/Win-PS2EXE/commits?path=ps2exe.ps1&page=1&per_page=1"
         $LatestCommit = (Invoke-RestMethod -Uri $PS2EXE_API_URL)[0]
         $LatestDate = [DateTime]$LatestCommit.commit.committer.date
-        $LocalPS2EXE = Join-Path (Get-Location) "ps2exe.ps1"
+        $LocalPS2EXE = Join-Path $PSScriptRoot "ps2exe.ps1"
         if(Test-Path -Path $LocalPS2EXE){
             $LocalDate = (Get-Item $LocalPS2EXE).LastWriteTime
             if($LocalDate -lt $LatestDate){
