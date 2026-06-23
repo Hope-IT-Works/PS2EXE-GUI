@@ -318,14 +318,14 @@ function Invoke-UI_iconFile {
 
 function Add-PS2EXE_Argument ($Key,$Value) {
     if($null -eq $Value){
-        $global:PS2EXE_Arguments.Add("-"+$Key)
+        $script:PS2EXE_Arguments.Add("-"+$Key)
     } else {
-        $global:PS2EXE_Arguments.Add("-"+$Key+' "'+$Value+'"')
+        $script:PS2EXE_Arguments.Add("-"+$Key+' "'+$Value+'"')
     }
 }
 
 function Invoke-PS2EXE {
-    $global:PS2EXE_Arguments = New-Object -TypeName System.Collections.ArrayList
+    $script:PS2EXE_Arguments = New-Object -TypeName System.Collections.ArrayList
 
     <#
         KEY/VALUE-PARAMETERS
@@ -396,7 +396,7 @@ function Invoke-PS2EXE {
         $PS2EXE_SOURCE = $PS2EXE_SOURCE -replace 's.StartsWith("-extdummt".Replace("dumm", "rac"), StringComparison.InvariantCultureIgnoreCase)','false'
     #>
     Switch-Page -Page 2
-    $PS2EXE_CMD = '".\ps2exe.ps1" '+$global:PS2EXE_Arguments
+    $PS2EXE_CMD = '".\ps2exe.ps1" '+$script:PS2EXE_Arguments
     $State.value_console_command = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes([string]$PS2EXE_CMD))
     $State.value_console_root = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes((Get-Location).Path))
     Async {

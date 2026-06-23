@@ -29,7 +29,7 @@ PS2EXE-GUI is still in development but is usable.
 
 - [x] Fix initial `TabIndex` (2 → 0) so the app opens on the Main page instead of the Console page
 - [x] Enable File menu items (New, Open, Save, Save As) in XAML
-- [x] Implement `Invoke-PS2EXEGUI_NewConfig` — resets all 28 fields to canonical defaults via `$global:PS2EXE_GUI_DEFAULTS`
+- [x] Implement `Invoke-PS2EXEGUI_NewConfig` — resets all 28 fields to canonical defaults via `$script:PS2EXE_GUI_DEFAULTS`
 - [x] Implement `Invoke-PS2EXEGUI_SaveConfig` — serialises current `$State` to a `.json` file
 - [x] Implement `Invoke-PS2EXEGUI_OpenConfig` — type-safe deserialisation (`bool` via `[System.Convert]::ToBoolean` with default fallback, explicit string casts)
 - [x] Implement UI helpers `Invoke-UI_SaveConfig`, `Invoke-UI_SaveAsConfig`, `Invoke-UI_OpenConfig`
