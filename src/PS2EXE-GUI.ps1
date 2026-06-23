@@ -471,26 +471,36 @@ function Invoke-PS2EXEGUI_SaveConfig ($FilePath) {
     if($PS2EXE_GUI_Verbose){ Write-Host ("[Invoke-PS2EXEGUI_SaveConfig] FilePath: "+$FilePath) }
     $Config = [ordered]@{}
     $script:PS2EXE_GUI_CONFIG_KEYS | ForEach-Object { $Config[$_] = $State.$_ }
-    $Config | ConvertTo-Json | Set-Content -Path $FilePath -Encoding UTF8
-    $script:PS2EXE_GUI_ConfigPath = $FilePath
+    try {
+        $Config | ConvertTo-Json | Set-Content -Path $FilePath -Encoding UTF8 -ErrorAction Stop
+        $script:PS2EXE_GUI_ConfigPath = $FilePath
+    } catch {
+        [System.Windows.MessageBox]::Show("The configuration could not be saved:`n"+$_.Exception.Message, "Save Config", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Error)
+    }
 }
 
 function Invoke-PS2EXEGUI_OpenConfig ($FilePath) {
     if($PS2EXE_GUI_Verbose){ Write-Host ("[Invoke-PS2EXEGUI_OpenConfig] FilePath: "+$FilePath) }
-    $Config = Get-Content -Path $FilePath -Raw -Encoding UTF8 | ConvertFrom-Json
-    $script:PS2EXE_GUI_CONFIG_KEYS | ForEach-Object {
-        $key = $_
-        if($null -ne $Config.$key){
-            $defaultVal = $script:PS2EXE_GUI_DEFAULTS[$key]
-            if($defaultVal -is [bool]){
-                try { $State.$key = [System.Convert]::ToBoolean($Config.$key) }
-                catch { $State.$key = $defaultVal }
-            } else {
-                $State.$key = [string]$Config.$key
+    try {
+        $rawContent = Get-Content -Path $FilePath -Raw -Encoding UTF8 -ErrorAction Stop
+        $Config = $rawContent | ConvertFrom-Json -ErrorAction Stop
+        $script:PS2EXE_GUI_DEFAULTS.GetEnumerator() | ForEach-Object { $State.($_.Key) = $_.Value }
+        $script:PS2EXE_GUI_CONFIG_KEYS | ForEach-Object {
+            $key = $_
+            if($null -ne $Config.$key){
+                $defaultVal = $script:PS2EXE_GUI_DEFAULTS[$key]
+                if($defaultVal -is [bool]){
+                    try { $State.$key = [System.Convert]::ToBoolean($Config.$key) }
+                    catch { $State.$key = $defaultVal }
+                } else {
+                    $State.$key = [string]$Config.$key
+                }
             }
         }
+        $script:PS2EXE_GUI_ConfigPath = $FilePath
+    } catch {
+        [System.Windows.MessageBox]::Show("The configuration could not be opened:`n"+$_.Exception.Message, "Open Config", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Error)
     }
-    $script:PS2EXE_GUI_ConfigPath = $FilePath
 }
 
 function Invoke-UI_SaveConfig {
