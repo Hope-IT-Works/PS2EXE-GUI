@@ -512,11 +512,17 @@ function Invoke-UI_OpenConfig {
 }
 
 function Install-PS2EXEUpdate ($TempFile, $Destination, $SuccessMessage) {
-    Copy-Item -Path $TempFile -Destination $Destination -Force
-    if(Test-Path -Path $Destination){
-        [System.Windows.MessageBox]::Show($SuccessMessage, "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
-    } else {
-        [System.Windows.MessageBox]::Show("The file could not be saved. Please check write permissions.", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Warning)
+    try {
+        Copy-Item -Path $TempFile -Destination $Destination -Force -ErrorAction Stop
+        $destHash = (Get-FileHash -Path $Destination -Algorithm SHA256).Hash
+        $tempHash = (Get-FileHash -Path $TempFile -Algorithm SHA256).Hash
+        if($destHash -eq $tempHash){
+            [System.Windows.MessageBox]::Show($SuccessMessage, "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
+        } else {
+            [System.Windows.MessageBox]::Show("The file was written but does not match the downloaded content. Please try again.", "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Warning)
+        }
+    } catch {
+        [System.Windows.MessageBox]::Show("The file could not be saved:`n"+$_.Exception.Message, "ps2exe.ps1 Update", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Error)
     }
 }
 
