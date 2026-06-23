@@ -145,10 +145,10 @@ $Xaml = @"
 
 #region pre_code
 $PS2EXE_GUI_Verbose = $true
-$global:PS2EXE_GUI_ConfigPath = $null
-$global:PS2EXE_GUI_CONFIG_FILTER = "PS2EXE-GUI Config (*.json)|*.json"
-$global:PS2EXE_PS1_RAW_URL = "https://raw.githubusercontent.com/MScholtes/Win-PS2EXE/master/ps2exe.ps1"
-$global:PS2EXE_GUI_CONFIG_KEYS = @(
+$script:PS2EXE_GUI_ConfigPath = $null
+$script:PS2EXE_GUI_CONFIG_FILTER = "PS2EXE-GUI Config (*.json)|*.json"
+$script:PS2EXE_PS1_RAW_URL = "https://raw.githubusercontent.com/MScholtes/Win-PS2EXE/master/ps2exe.ps1"
+$script:PS2EXE_GUI_CONFIG_KEYS = @(
     'ui_inputFile','ui_outputFile','ui_iconFile',
     'ui_title','ui_description','ui_company','ui_product','ui_copyright','ui_trademark','ui_version',
     'value_runtime','value_instructionSet','value_threadApartment',
@@ -156,7 +156,7 @@ $global:PS2EXE_GUI_CONFIG_KEYS = @(
     'ui_noOutput','ui_noError','ui_noVisualStyles','ui_exitOnCancel',
     'ui_DPIAware','ui_winFormsDPIAware','ui_requireAdmin','ui_supportOS','ui_virtualize','ui_longPaths'
 )
-$global:PS2EXE_GUI_DEFAULTS = [ordered]@{
+$script:PS2EXE_GUI_DEFAULTS = [ordered]@{
     'ui_inputFile'         = ''
     'ui_outputFile'        = ''
     'ui_iconFile'          = ''
@@ -463,25 +463,25 @@ function Invoke-PS2EXE {
 
 function Invoke-PS2EXEGUI_NewConfig {
     if($PS2EXE_GUI_Verbose){ Write-Host "[Invoke-PS2EXEGUI_NewConfig]" }
-    $global:PS2EXE_GUI_DEFAULTS.GetEnumerator() | ForEach-Object { $State.($_.Key) = $_.Value }
-    $global:PS2EXE_GUI_ConfigPath = $null
+    $script:PS2EXE_GUI_DEFAULTS.GetEnumerator() | ForEach-Object { $State.($_.Key) = $_.Value }
+    $script:PS2EXE_GUI_ConfigPath = $null
 }
 
 function Invoke-PS2EXEGUI_SaveConfig ($FilePath) {
     if($PS2EXE_GUI_Verbose){ Write-Host ("[Invoke-PS2EXEGUI_SaveConfig] FilePath: "+$FilePath) }
     $Config = [ordered]@{}
-    $global:PS2EXE_GUI_CONFIG_KEYS | ForEach-Object { $Config[$_] = $State.$_ }
+    $script:PS2EXE_GUI_CONFIG_KEYS | ForEach-Object { $Config[$_] = $State.$_ }
     $Config | ConvertTo-Json | Set-Content -Path $FilePath -Encoding UTF8
-    $global:PS2EXE_GUI_ConfigPath = $FilePath
+    $script:PS2EXE_GUI_ConfigPath = $FilePath
 }
 
 function Invoke-PS2EXEGUI_OpenConfig ($FilePath) {
     if($PS2EXE_GUI_Verbose){ Write-Host ("[Invoke-PS2EXEGUI_OpenConfig] FilePath: "+$FilePath) }
     $Config = Get-Content -Path $FilePath -Raw -Encoding UTF8 | ConvertFrom-Json
-    $global:PS2EXE_GUI_CONFIG_KEYS | ForEach-Object {
+    $script:PS2EXE_GUI_CONFIG_KEYS | ForEach-Object {
         $key = $_
         if($null -ne $Config.$key){
-            $defaultVal = $global:PS2EXE_GUI_DEFAULTS[$key]
+            $defaultVal = $script:PS2EXE_GUI_DEFAULTS[$key]
             if($defaultVal -is [bool]){
                 try { $State.$key = [System.Convert]::ToBoolean($Config.$key) }
                 catch { $State.$key = $defaultVal }
@@ -490,24 +490,24 @@ function Invoke-PS2EXEGUI_OpenConfig ($FilePath) {
             }
         }
     }
-    $global:PS2EXE_GUI_ConfigPath = $FilePath
+    $script:PS2EXE_GUI_ConfigPath = $FilePath
 }
 
 function Invoke-UI_SaveConfig {
-    if($null -ne $global:PS2EXE_GUI_ConfigPath){
-        Invoke-PS2EXEGUI_SaveConfig -FilePath $global:PS2EXE_GUI_ConfigPath
+    if($null -ne $script:PS2EXE_GUI_ConfigPath){
+        Invoke-PS2EXEGUI_SaveConfig -FilePath $script:PS2EXE_GUI_ConfigPath
     } else {
         Invoke-UI_SaveAsConfig
     }
 }
 
 function Invoke-UI_SaveAsConfig {
-    $FilePath = Invoke-PS2EXEGUI_SaveFileDialog -Filter $global:PS2EXE_GUI_CONFIG_FILTER
+    $FilePath = Invoke-PS2EXEGUI_SaveFileDialog -Filter $script:PS2EXE_GUI_CONFIG_FILTER
     if($FilePath -ne ""){ Invoke-PS2EXEGUI_SaveConfig -FilePath $FilePath }
 }
 
 function Invoke-UI_OpenConfig {
-    $FilePath = Invoke-PS2EXEGUI_OpenFileDialog -Filter $global:PS2EXE_GUI_CONFIG_FILTER
+    $FilePath = Invoke-PS2EXEGUI_OpenFileDialog -Filter $script:PS2EXE_GUI_CONFIG_FILTER
     if($FilePath -ne ""){ Invoke-PS2EXEGUI_OpenConfig -FilePath $FilePath }
 }
 
@@ -524,7 +524,7 @@ function Invoke-PS2EXEGUI_CheckPS2EXEUpdate {
     if($PS2EXE_GUI_Verbose){ Write-Host "[Invoke-PS2EXEGUI_CheckPS2EXEUpdate]" }
     $TempFile = (New-TemporaryFile).FullName
     try {
-        Invoke-WebRequest -Uri $global:PS2EXE_PS1_RAW_URL -OutFile $TempFile -UseBasicParsing
+        Invoke-WebRequest -Uri $script:PS2EXE_PS1_RAW_URL -OutFile $TempFile -UseBasicParsing
         $LocalPS2EXE = Join-Path $PSScriptRoot "ps2exe.ps1"
         if(Test-Path -Path $LocalPS2EXE){
             $LocalHash  = (Get-FileHash -Path $LocalPS2EXE -Algorithm SHA256).Hash

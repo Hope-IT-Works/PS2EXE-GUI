@@ -36,7 +36,7 @@ PS2EXE-GUI is still in development but is usable.
 - [x] Implement `Install-PS2EXEUpdate` helper — copies temp → dest, verifies write, shows result (no duplication)
 - [x] Implement `Invoke-PS2EXEGUI_CheckPS2EXEUpdate` — `New-TemporaryFile`, SHA-256 hash comparison, calls `Install-PS2EXEUpdate`, cleans up in `finally`
 - [x] Wire all new handlers into `Invoke-WindowLoaded`
-- [x] Add shared constants: `$global:PS2EXE_GUI_DEFAULTS`, `$global:PS2EXE_GUI_CONFIG_FILTER`, `$global:PS2EXE_PS1_RAW_URL`
+- [x] Add shared ($Script:) constants: `$script:PS2EXE_GUI_DEFAULTS`, `$script:PS2EXE_GUI_CONFIG_FILTER`, `$script:PS2EXE_PS1_RAW_URL`
 - [x] Resolve `ps2exe.ps1` path via `$PSScriptRoot` instead of `Get-Location`
 - [x] Fix menu typo: `_About P2EXE-GUI` → `_About PS2EXE-GUI`
 
