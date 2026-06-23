@@ -765,7 +765,7 @@ Set-Binding -Target $dom_checkbox_extractable -Property $([System.Windows.Contro
 Set-Binding -Target $dom_button_compile -Property $([System.Windows.Controls.Button]::IsEnabledProperty) -Index 59 -Name "state_compile"  
 Set-Binding -Target $PS2EXE_Console -Property $([System.Windows.Controls.TextBox]::TextProperty) -Index 65 -Name "value_console"  
 Set-Binding -Target $ui_dockpanel19 -Property $([System.Windows.Controls.Button]::IsEnabledProperty) -Index 60 -Name "state_compiled"  
-$Global:SyncHash = [HashTable]::Synchronized(@{})
+$script:SyncHash = [HashTable]::Synchronized(@{})
 $SyncHash.Window = $Window
 $Jobs = [System.Collections.ArrayList]::Synchronized([System.Collections.ArrayList]::new())
 $initialSessionState = [initialsessionstate]::CreateDefault()
