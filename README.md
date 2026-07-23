@@ -11,21 +11,42 @@ This project provides a advanced graphical user interface for [PS2EXE](https://g
 
 PS2EXE-GUI is still in development but is usable.
 
-As you may have noticed, the project has not been updated for a while. I will get back to it as soon as possible. I'm sorry for the inconvenience.
-
 | Feature                          | Status | ETA |
 |----------------------------------|--------|-----|
-| add all p2exe fields             | ✅ | ✅ |
+| add all ps2exe fields            | ✅ | ✅ |
 | add tooltip to all ps2exe fields | ✅ | ✅ |
 | add about page                   | ✅ | ✅ |
 | mark required ps2exe fields      | ✅ | ✅ |
 | get ps2exe call done             | ✅ | ✅ |
-| add ps2exe-script update         | ⏳ | *not specified* |
+| add ps2exe-script update         | ✅ | ✅ |
+| add save files                   | ✅ | ✅ |
 | release first build              | ⏳ | *not specified* |
-| add save files                   | ⏳ | *not specified* |
 | release second build             | ⏳ | *not specified* |
 | integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) | 🔜 | *not specified* |
 | release third build              | 🔜 | *not specified* |
+
+### Recently completed
+
+- [x] Fix initial `TabIndex` (2 → 0) so the app opens on the Main page instead of the Console page
+- [x] Enable File menu items (New, Open, Save, Save As) in XAML
+- [x] Implement `Invoke-PS2EXEGUI_NewConfig` — resets all 28 fields to canonical defaults via `$script:PS2EXE_GUI_DEFAULTS`
+- [x] Implement `Invoke-PS2EXEGUI_SaveConfig` — serialises current `$State` to a `.json` file
+- [x] Implement `Invoke-PS2EXEGUI_OpenConfig` — type-safe deserialisation (`bool` via `[System.Convert]::ToBoolean` with default fallback, explicit string casts)
+- [x] Implement UI helpers `Invoke-UI_SaveConfig`, `Invoke-UI_SaveAsConfig`, `Invoke-UI_OpenConfig`
+- [x] Implement `Install-PS2EXEUpdate` helper — copies temp → dest, verifies write, shows result (no duplication)
+- [x] Implement `Invoke-PS2EXEGUI_CheckPS2EXEUpdate` — `New-TemporaryFile`, SHA-256 hash comparison, calls `Install-PS2EXEUpdate`, cleans up in `finally`
+- [x] Wire all new handlers into `Invoke-WindowLoaded`
+- [x] Add shared ($Script:) constants: `$script:PS2EXE_GUI_DEFAULTS`, `$script:PS2EXE_GUI_CONFIG_FILTER`, `$script:PS2EXE_PS1_RAW_URL`
+- [x] Resolve `ps2exe.ps1` path via `$PSScriptRoot` instead of `Get-Location`
+- [x] Fix menu typo: `_About P2EXE-GUI` → `_About PS2EXE-GUI`
+
+### Still to do
+
+- [ ] Release first build
+- [ ] Release second build
+- [ ] Integrate [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) for script linting
+- [ ] Release third build
+- [ ] BONUS: implement `extractable` option (allow users to choose whether the `.ps1` can be extracted from the compiled `.exe`)
 
 ## Parameter Support Comparison
 
